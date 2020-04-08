@@ -1,3 +1,9 @@
+
+ 
+ # include <iostream>
+ 
+ using namespace std;
+ 
 /* Change.cpp - 
  * Author: Matthew Sheehan
  * Project: HW 3, Project 3
@@ -23,26 +29,20 @@
  * 3. Print the change total, and how it is broken down in quarters, dimes, and
  * nickels to the user.
  */
- 
- # include <iostream>
- 
- using namespace std;
- 
- int main()
- {
+ int main ( ) {
      int dollar_bill = 100; // The dollar the user pays with.
      int item_price, change, quarters, dimes, nickels;
      
      cout << "Hello user, please enter the price of your item: ";
      cin  >> item_price;
-     cout << endl;
+     cout << "\n";
      
      // Determine change.
-     change = (dollar_bill - item_price);
+     change = ( dollar_bill - item_price );
      
-     quarters =   (change / 25);
-     dimes    =  ((change % 25) / 10);
-     nickels  = (((change % 25) % 10) / 5);
+     quarters = ( change / 25 );
+     dimes    = ( ( change % 25 ) / 10 );
+     nickels  = ( ( ( change % 25 ) % 10 ) / 5 );
      
      cout << "Your change is " << quarters << " quarters, " << dimes;
      cout << " dimes, and "    << nickels  << " nickels."   << endl;
