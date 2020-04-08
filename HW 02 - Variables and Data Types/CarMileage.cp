@@ -1,4 +1,4 @@
- #include <iostream>
+ #include < iostream >
  using namespace std;
 
 /*
@@ -34,8 +34,8 @@
      double potential_city_miles    = ( tank_capacity * city_mpg );
      double potential_highway_miles = ( tank_capacity * highway_mpg );
      
-     cout << "Total City Miles: "    << potential_city_miles    << "\n;
-     cout << "Total Highway Miles: " << potential_highway_miles << "\n;
+     std::cout << "Total City Miles: "    << potential_city_miles    << "\n;
+     std::cout << "Total Highway Miles: " << potential_highway_miles << "\n;
 
      system("pause");
      return 0;   
