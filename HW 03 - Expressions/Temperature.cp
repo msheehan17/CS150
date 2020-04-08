@@ -1,3 +1,6 @@
+ #include < iostream > 
+ using namespace std;
+ 
 /* Temperature.cpp - 
  * Author: Matthew Sheehan
  * Project: HW 3, Project 2
@@ -17,17 +20,11 @@
  *
  * 3. Print the results to the user.
  */
- 
- # include <iostream>
- 
- using namespace std;
- 
- int main()
- {
+ int main( ) {
      int farenheit;
      double celcius;
      
-     cout << "Hello user, please enter a temperature in farenheit (be sure" << endl;
+     cout << "Hello user, please enter a temperature in farenheit (be sure" << "\n";
      cout << "to use whole numbers): ";
      
      cin  >> farenheit;
@@ -35,10 +32,10 @@
      cout << endl;
      
      // Convert farenheit temperature to celcius.
-     celcius = (double) (5.0 * (farenheit - 32.0) / 9.0);
+     celcius = ( double ) ( 5.0 * ( farenheit - 32.0 ) / 9.0 );
      
      cout << "The temperature you entered, in celcius, is: " << celcius; 
-     cout << " degrees." << endl; 
+     cout << " degrees." << "\n"; 
      
      system("pause");
      return 0;      
