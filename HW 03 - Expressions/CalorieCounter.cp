@@ -1,3 +1,6 @@
+ #include < iostream >
+ using namespace std;
+ 
 /* CalorieCounter.cpp - 
  * Author: Matthew Sheehan
  * Project: HW 3, Project 1
@@ -33,30 +36,21 @@
  * the total amount of calories they burned as a whole.
  *  
  */
- 
- # include <iostream>
- 
- using namespace std;
- 
- int main()
- {
-     double weight;
-     double running;
-     double basketball;
-     double sleeping;
+ int main ( ) {
+     double weight, running, basketball, sleeping;
      double sum; // This will store the total calories burned.
      
-     cout << "Hello user, please enter your weight: " << endl;
+     cout << "Hello user, please enter your weight: " << "\n";
      cin  >> weight;
-     cout << endl;
+     cout << "\n";
      
      // Calculate weight to kilograms.
      weight /= 2.2; 
      
      // Determine each activity's calories per minute.
-     running    = (0.0175 * weight * 10);
-     basketball = (0.0175 * weight * 8);
-     sleeping   = (0.0175 * weight * 1);
+     running    = ( 0.0175 * weight * 10 );
+     basketball = ( 0.0175 * weight * 8 );
+     sleeping   = ( 0.0175 * weight * 1 );
      
      /* Determine how many calories were burned should the user run for 30
       * minutes, play basketball for 30 minutes, and sleep for 6 hours.
@@ -66,18 +60,18 @@
      sleeping   *= 360;
      
      // Total calories burned.
-     sum = (running + basketball + sleeping); 
+     sum = ( running + basketball + sleeping ); 
      
      cout << "Based on your your weight, were you to run for 30 minutes, play \n";
      cout << "basketball for 30 minutes, and sleep for six hours, you would burn \n";
-     cout << "the following amount of calories \n" << endl;
+     cout << "the following amount of calories \n" << "\n";
      
-     cout << "Running (30 Minutes): "    << running    << endl;
-     cout << "Basketball (30 Minutes): " << basketball << endl;
-     cout << "Sleeping (6 Hours): "      << sleeping   << endl;
+     cout << "Running (30 Minutes): "    << running    << "\n";
+     cout << "Basketball (30 Minutes): " << basketball << "\n";
+     cout << "Sleeping (6 Hours): "      << sleeping   << "\n";
      cout << endl;
      
-     cout << "Total calories burned: " << sum << endl;
+     cout << "Total calories burned: " << sum << "\n";
      
      system("pause");
      return 0;    
