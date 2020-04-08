@@ -1,3 +1,6 @@
+#include < iostream >
+using namespace std;
+ 
 /* Haiku.cpp - Display a haiku on the screen. 
  * Author: Matthew Sheehan
  * Module: 2
@@ -11,14 +14,8 @@
  * a haiku broken down onto three seperate lines.
  *
  */
- 
- # include <iostream>
- 
- using namespace std;
- 
- int main ()
- {
-     cout << "Light of the moon\nmoves west, flowers' shadows\ncreep eastward" << endl;
+ int main ( ){
+     cout << "Light of the moon\nmoves west, flowers' shadows\ncreep eastward" << "\n";
      
      system("pause");
      return 0;
