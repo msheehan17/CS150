@@ -1,3 +1,6 @@
+ # include <iostream>
+ using namespace std;
+ 
 /* Diamond.cpp - Print a diamond to the screen. 
  * Author: Matthew Sheehan
  * Module: 2
@@ -10,22 +13,15 @@
  * for the shape of a diamond.
  *
  */
- 
- # include <iostream>
- 
- using namespace std;
- 
- int main ()
- {
-     cout << "     *     " << endl;
-     cout << "    ***    " << endl;
-     cout << "   *****   " << endl;
-     cout << "  *******  " << endl;
-     cout << "   *****   " << endl;
-     cout << "    ***    " << endl;
-     cout << "     *     " << endl;
+ int main ( ) {
+     cout << "     *     " << "\n;
+     cout << "    ***    " << "\n;
+     cout << "   *****   " << "\n;
+     cout << "  *******  " << "\n;
+     cout << "   *****   " << "\n;
+     cout << "    ***    " << "\n;
+     cout << "     *     " << "\n;
      
      system("pause");
      return 0;
-       
 }// End main.
