@@ -1,4 +1,5 @@
-/* CarMileage.cpp - Calculate total distance potential of a car in the city 
+/**
+ * CarMileage.cpp - Calculate total distance potential of a car in the city 
  * and on the highway.
  * Author: Matthew Sheehan
  * Module: 2
@@ -23,25 +24,19 @@
  * 4. Print the total potential miles for both the city and the highway to the user.
  *
  */
- 
  #include <iostream>
- 
  using namespace std;
  
- int main ()
- {
+ int main ( ) {
      int tank_capacity  = 20;
-     
      double city_mpg    = 23.5;
      double highway_mpg = 28.9;
+     double potential_city_miles    = ( tank_capacity * city_mpg );
+     double potential_highway_miles = ( tank_capacity * highway_mpg );
      
-     double potential_city_miles    = (tank_capacity * city_mpg);
-     double potential_highway_miles = (tank_capacity * highway_mpg);
-     
-     cout << "Total City Miles: "    << potential_city_miles    << endl;
-     cout << "Total Highway Miles: " << potential_highway_miles << endl;
+     cout << "Total City Miles: "    << potential_city_miles    << "\n;
+     cout << "Total Highway Miles: " << potential_highway_miles << "\n;
 
      system("pause");
-     return 0; 
-     
+     return 0;   
 }// End main.
