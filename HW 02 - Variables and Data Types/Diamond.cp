@@ -1,4 +1,4 @@
- # include < iostream >
+ #include < iostream >
  using namespace std;
  
 /* Diamond.cpp - Print a diamond to the screen. 
