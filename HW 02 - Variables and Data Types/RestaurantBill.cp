@@ -1,3 +1,6 @@
+ #include < iostream >
+ using namespace std;
+ 
 /* RestaurantBill.cpp - Calculate a restaurant bill, with tax and tip.
  * Author: Matthew Sheehan
  * Module: 2
@@ -19,25 +22,18 @@
  * 5. Print the cost break down to the user.
  *
  */
- 
- #include <iostream>
- 
- using namespace std;
- 
- int main ()
- {
+ int main ( ) {
      double meal_cost  = 44.50;
-     double tax_amount = (meal_cost * 0.675);
-     double tip_amount = ((meal_cost + tip_amount) * 0.15);
-     double total_bill = (meal_cost + tax_amount + tip_amount);
+     double tax_amount = ( meal_cost * 0.675 );
+     double tip_amount = ( ( meal_cost + tip_amount) * 0.15 );
+     double total_bill = ( meal_cost + tax_amount + tip_amount );
      
-     cout << "Hello, your total bill is " << total_bill << endl;
-     cout << "Meal Cost: "  << meal_cost  << endl;
-     cout << "Tax Amount: " << tax_amount << endl;
-     cout << "Tip: "        << tip_amount << endl;
+     cout << "Hello, your total bill is " << total_bill << "\n";
+     cout << "Meal Cost: "  << meal_cost  << "\n";
+     cout << "Tax Amount: " << tax_amount << "\n";
+     cout << "Tip: "        << tip_amount << "\n";
     
      system("pause");
-     return 0; 
-     
+     return 0;   
 }// End main.
      
