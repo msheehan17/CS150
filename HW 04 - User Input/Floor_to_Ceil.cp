@@ -1,3 +1,7 @@
+ #include < iostream >
+ #include < cmath >   // Included to use ceil, floor, and abs functions.
+ using namespace std;
+ 
 /* Floor_to_Ceiling.cpp 
  * Author: Matthew Sheehan
  * Project: HW 4, Project 2
@@ -24,36 +28,27 @@
  * 6. Echo the input to the user, then output the user's converted values to the screen.
  *
  */
- 
- # include <iostream>
- # include <cmath>   // Included to use ceil, floor, and abs functions.
- 
- using namespace std;
- 
- int main ()
- {
-     double user_number; // Stores the user's number.
-     double ceiling_val; // The user's number, rounded up.
-     double floor_val;   // The user's number, rounded down.
-     int absolute_val;   // The absolute value of the user's number.
+ int main ( ) {
+     double user_number, ceiling_val, floor_val;
+     int absolute_val; 
      
      // Prompt user to enter their number.
      cout << "Hello! Please enter a number with a decimal: ";
      cin  >> user_number;
-     cout << endl;
+     cout << "\n";
      
      // Convert the numbers.
-     ceiling_val  = ceil(user_number);
-     floor_val    = floor(user_number);
-     absolute_val = (int) abs(user_number);
+     ceiling_val  = ceil  ( user_number );
+     floor_val    = floor ( user_number );
+     absolute_val = ( int ) abs ( user_number) ;
      
      // Echo the input to the user.
-     cout << "You entered " << user_number << "." << endl << endl;
+     cout << "You entered " << user_number << "." << "\n\n";
      
      // Output the converted numbers to the user.
-     cout << "Your number rounded up is: "   << ceiling_val << endl;
-     cout << "Your number rounded down is: " << floor_val   << endl;
-     cout << "The absolute value of your number is: " << absolute_val << endl << endl;
+     cout << "Your number rounded up is: "   << ceiling_val << "\n";
+     cout << "Your number rounded down is: " << floor_val   << "\n";
+     cout << "The absolute value of your number is: " << absolute_val << "\n\n";
      
      system("pause");
      return 0;
