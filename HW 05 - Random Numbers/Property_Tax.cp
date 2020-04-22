@@ -1,3 +1,7 @@
+ #include < iostream >
+ #include < iomanip >
+ using namespace std;
+
 /* Property_Tax - Calculates the property tax of a home.
  * Author: Matthew Sheehan
  * Project: HW5, Part 3
@@ -20,13 +24,7 @@
  * information.
  * 
  */
- 
- #include<iostream>
- #include<iomanip>
- using namespace std;
- 
- int main()
- {
+ int main ( ) {
      // Constants, assessed value conversion rate.
      double ASSESSED_VALUE_RATE = 0.6;
      
@@ -37,33 +35,33 @@
      // Prompt user for information.
      cout << "Hello. Please enter the value of your home: ";
      cin  >> home_value;
-     cout << endl;
+     cout << "\n";
      
      cout << "What is Madison county's current tax rate?: ";
      cin  >> tax_rate;
-     cout << endl;
+     cout << "\n";
      
      // Perform calculations.
-     assessed_value = (home_value * ASSESSED_VALUE_RATE);
-     tax_increments = (assessed_value / 100.00);
-     property_tax   = (tax_increments * tax_rate);
+     assessed_value = ( home_value * ASSESSED_VALUE_RATE );
+     tax_increments = ( assessed_value / 100.00 );
+     property_tax   = ( tax_increments * tax_rate );
      
      // Print information to user.
-     cout << left  << setw(31) << "Actual value of the property: " 
-          << right << setw(1)  << "$" << fixed << setprecision(2) << setw(10) << home_value << endl;
+     cout << left  << setw ( 31 ) << "Actual value of the property: " 
+          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << home_value << "\n";
           
-     cout << left  << setw(31) << "Assessed percentage rate: " 
-          << right << setw(10) << ASSESSED_VALUE_RATE << "%" << endl;
+     cout << left  << setw ( 31 ) << "Assessed percentage rate: " 
+          << right << setw ( 10 ) << ASSESSED_VALUE_RATE << "%" << "\n";
           
-     cout << left  << setw(31) << "Assessed value: " 
-          << right << setw(1)  << "$" << fixed << setprecision(2) << setw(10) << assessed_value << endl;
+     cout << left  << setw ( 31 ) << "Assessed value: " 
+          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << assessed_value << "\n";
           
-     cout << left  << setw(31) << "Tax rate per $100 of value: " 
-          << right << setw(1)  << "$" << fixed << setprecision(2) << setw(10) << tax_rate << endl;
+     cout << left  << setw ( 31 ) << "Tax rate per $100 of value: " 
+          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << tax_rate << "\n";
           
-     cout << left  << setw(31) << "Property tax: " 
-          << right << setw(1)  << "$" << fixed << setprecision(2) << setw(10) << property_tax << endl << endl;
+     cout << left  << setw ( 31 ) << "Property tax: " 
+          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << property_tax << "\n\n";
 
-     system("pause");
+     system ( "pause" );
      return 0;
  } // End main.
