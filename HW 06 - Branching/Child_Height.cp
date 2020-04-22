@@ -1,3 +1,7 @@
+#include < iostream >
+#include < string >
+using namespace std;
+
 /* Child_Height.cpp - Predicts a child's height based on parents' height and the child's gender.
  * Author: Matthew Sheehan
  * Project: HW6
@@ -22,13 +26,7 @@
  * feet to inches in step 2, backwards).
  *
  */
-             
-
-# include <iostream>
-# include <string>
-using namespace std;
-
-int main(){
+int main ( ) {
     
     // Instance variables.
     char child_gender;
@@ -44,79 +42,79 @@ int main(){
     cout << "First, please enter the father's height. Seperate the feet and inches \n";
     cout << "with a space, and do not use \' or \'': ";
     cin  >> feet >> inches;
-    cout << endl;
+    cout << "\n";
     
-    if (feet < 0){
+    if ( feet < 0 ) {
        cout << "Feet cannot be negative.\n";
-       system("pause");
-       exit(0);
+       system ( "pause" );
+       exit ( 0 );
     } 
     
-    if (inches > 12){
+    if ( inches > 12 ) {
        cout << "12 inches is the same as 1 foot, please reduce your inches to feet.\n";
-       system("pause");
-       exit(0);
+       system ( "pause" );
+       exit ( 0 );
     }
     
     // Because the formula requires height in inches, this converts the measurement in feet.
-    dad_height = ((feet * 12) + inches);
+    dad_height = ( ( feet * 12 ) + inches );
     
     
     // Prompt the user for the mother's height.
     cout << "Next, please enter the mother's height. Seperate the feet and inches \n";
     cout << "with a space, and do not use \' or \'': ";
     cin  >> feet >> inches;
-    cout << endl;
+    cout << "\n";
     
-    if (feet < 0){
+    if ( feet < 0 ) {
        cout << "Feet cannot be negative.\n";
-       system("pause");
-       exit(0);
+       system( "pause" );
+       exit ( 0 );
     }
     
-    if (inches > 12){
+    if ( inches > 12 ) {
        cout << "12 inches is the same as 1 foot, please reduce your inches to feet.\n";
-       system("pause");
-       exit(0);
+       system ( "pause" );
+       exit ( 0 );
     }
     
     // Because the formula requires height in inches, this converts the measurement in feet.
-    mom_height = ((feet * 12) + inches);
+    mom_height = ( ( feet * 12 ) + inches );
     
     
     // Prompt the user for the gender of the child.
     cout << "Finally, can you please enter the gender of the child? (b for boy/g for girl): ";
     cin  >> child_gender;
-    cout << endl;
+    cout << "\n";
                       
-    switch (child_gender){
+    switch ( child_gender ) {
        // Boy
        case 'b':
        case 'B':
-          child_height = (int) (((mom_height * (13.0 / 12.0)) + dad_height) / 2);
+          child_height = ( int ) ( ( ( mom_height * ( 13.0 / 12.0 ) ) + dad_height ) / 2 );
           break;
        // Girl
        case 'g':
        case 'G':
-          child_height = (int) (((dad_height * (12.0 / 13.0)) + mom_height) / 2); 
+          child_height = ( int ) ( ( ( dad_height * ( 12.0 / 13.0 ) ) + mom_height ) / 2 ); 
           break;
        default:
           cout << "That is not an acceptable input, goodbye.";
-          system("pause");
-          exit(0);
+          system ( "pause" );
+          exit ( 0 );
           break;
     }
     
   
     // Convert the height in inches back to feet and inches.
-    feet   = (child_height / 12);
-    inches = (child_height % 12);
+    feet   = ( child_height / 12 );
+    inches = ( child_height % 12 );
     
     
     // Print the result back to the user.
     cout << "Projected child height: " << feet << "\' " << inches << "\".\n\n";      
     
-    system("pause");
+    system ( "pause" );
     return 0;    
  }
     
