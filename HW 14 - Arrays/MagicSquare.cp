@@ -1,3 +1,13 @@
+#include < iostream >
+#include < string >
+using namespace std;
+
+const int DIMENSION = 3;
+
+bool checkOneThroughNine ( int array [ ] [ 3 ] );
+bool addsTo15 ( int one, int two, int three );
+bool isMagicSquare ( int array [ ] [ 3 ] );
+
 /* MagicSquare.cpp - Determines if a 3 x 3 box of number is  "magic square".
  *
  * HW 14, Part 2
@@ -29,26 +39,13 @@
  * function isMagicSquare will return true, as the 2D array is determined to be
  * a magic square.
  */
- 
- #include<iostream>
- #include<string>
- using namespace std;
- 
- const int DIMENSION = 3;
- 
- bool checkOneThroughNine(int array[][3]);
- bool addsTo15(int one, int two, int three);
- bool isMagicSquare(int array[][3]);
- 
- int main(){
+ int main ( ) {
+     int testSquare [ DIMENSION ] [ DIMENSION ] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
      
-     int testSquare[DIMENSION][DIMENSION] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
-     
-     string message = (isMagicSquare(testSquare) == 0) ? "This is NOT a magic square.\n\n" : "This is a magic square.\n\n";
-     
+     string message = ( isMagicSquare ( testSquare ) == 0 ) ? "This is NOT a magic square.\n\n" : "This is a magic square.\n\n";
      cout << message;
  
-     system("pause");
+     system ( "pause" );
      return 0;
  }
  
@@ -56,18 +53,15 @@
   * corresponding boolean value will become true. In order for this to be a magic square
   * it must contains numbers 1-9, so all bool values must return true.
   */
- bool checkOneThroughNine(int array[][3]){
-      
+ bool checkOneThroughNine ( int array [ ] [ 3 ] ) {
       bool one, two, three, four, five, six, seven, eight, nine;
       
       // Initialize the variables.
       one = two = three = four = five = six = seven = eight = nine = false;
       
-      for (int row = 0; row < DIMENSION; row++)
-          for (int col = 0; col < DIMENSION; col++){
-              
-              switch (array[row][col]){
-                     
+      for ( int row = 0; row < DIMENSION; row++ )
+          for ( int col = 0; col < DIMENSION; col++ ) {
+              switch ( array [ row ][ col ] ) { 
                   case 1:
                        one = true;
                        break;
@@ -99,30 +93,27 @@
                        break;
               }// End switch.
           }// End for loop.
-          
-      return (one && two && three && four && five && six && seven && eight && nine);
+      return ( one && two && three && four && five && six && seven && eight && nine );
  }
  
  // Returns true if all three arguments add to 15.
- bool addsTo15(int one, int two, int three){
-      
-      return (one + two + three == 15);
+ bool addsTo15 ( int one, int two, int three ) {
+      return ( one + two + three == 15 );
  }
  
  /* Determines if a three by three box of numbers is a magic square. In order to be
   * a magic square, all rows, columns, and diagonals must add up to 15, and the square
   * must contain numbers 1-9.
   */
- bool isMagicSquare(int array[][3]) {
-      
-      return (checkOneThroughNine(array) && // Check that the array contains numbers 1-9.
-              addsTo15(array[0][0], array[0][1], array[0][2]) && // Check first row adds to 15.
-              addsTo15(array[1][0], array[1][1], array[1][2]) && // Check second row.
-              addsTo15(array[2][0], array[2][1], array[2][2]) && // Check third row.
-              addsTo15(array[0][0], array[1][0], array[2][0]) && // Check first column.
-              addsTo15(array[0][1], array[1][1], array[2][1]) && // Check second column.
-              addsTo15(array[0][2], array[1][2], array[2][2]) && // Check third column.
-              addsTo15(array[0][0], array[1][1], array[2][2]) && // Check left to right diagonal.
-              addsTo15(array[0][2], array[1][1], array[2][0]) ); // Check right to left diagonal.
+ bool isMagicSquare ( int array [ ] [ 3 ] ) {
+      return ( checkOneThroughNine ( array ) && // Check that the array contains numbers 1-9.
+              addsTo15 ( array [ 0 ] [ 0 ], array [ 0 ] [ 1 ], array [ 0 ] [ 2 ] ) && // Check first row adds to 15.
+              addsTo15 ( array [ 1 ] [ 0 ], array [ 1 ] [ 1 ], array [ 1 ] [ 2 ] ) && // Check second row.
+              addsTo15 ( array [ 2 ] [ 0 ], array [ 2 ] [ 1 ], array [ 2 ] [ 2 ] ) && // Check third row.
+              addsTo15 ( array [ 0 ] [ 0 ], array [ 1 ] [ 0 ], array [ 2 ] [ 0 ] ) && // Check first column.
+              addsTo15 ( array [ 0 ] [ 1 ], array [ 1 ] [ 1 ], array [ 2 ] [ 1 ] ) && // Check second column.
+              addsTo15 ( array [ 0 ] [ 2 ], array [ 1 ] [ 2 ], array [ 2 ] [ 2 ] ) && // Check third column.
+              addsTo15 ( array [ 0 ] [ 0 ], array [ 1 ] [ 1 ], array [ 2 ] [ 2 ] ) && // Check left to right diagonal.
+              addsTo15 ( array [ 0 ] [ 2 ], array [ 1 ] [ 1 ], array [ 2 ] [ 0 ] ) ); // Check right to left diagonal.
  }
       
