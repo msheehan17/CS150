@@ -1,6 +1,6 @@
  #include < iostream >
  #include < string >
- #include < iomani p>
+ #include < iomanip >
  using namespace std;
 
 /* MonthlyBudget.cpp - Manages a monthly budget for a user.
