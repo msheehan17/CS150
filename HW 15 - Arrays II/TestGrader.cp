@@ -60,7 +60,7 @@
       // Cycles through each question on the exam.
       for ( int i = 0; i < SIZE; i++ ) {
           // User answers correctly.
-          if ( user_answers[i] == answers [ i ] )
+          if ( user_answers [ i ] == answers [ i ] )
              number_correct++;
           // User answers wrong.
           else {
@@ -77,7 +77,7 @@
          cout << "Questions missed: ";
          
          for ( int i = 0; i < number_incorrect; i++ )
-             cout << wrong_answers[i] << " ";
+             cout << wrong_answers [ i ] << " ";
          
       // User answers 15 or more questons correctly.
       } else {
@@ -86,7 +86,7 @@
          cout << "Questions missed: ";
          
          for ( int i = 0; i < number_incorrect; i++ )
-             cout << wrong_answers[i] << " ";
+             cout << wrong_answers [ i ] << " ";
       }  
       cout << "\n\n";
  }
@@ -96,7 +96,6 @@
  char checkAnswer ( char answer );
  
  int main ( ) {
-     
      char user_answers [ SIZE ]; // The array that will hold the user answers.
      char user_answer; // The answer the user gives.
      
@@ -116,7 +115,7 @@
      // Grade the test by comparing the user's answers against the answer key.
      test.grade ( user_answers );
      
-    system("pause");
+    system ( "pause" );
     return 0;     
  }
  
