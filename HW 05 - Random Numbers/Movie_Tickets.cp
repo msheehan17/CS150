@@ -1,4 +1,3 @@
- 
  #include < iostream >
  #include < iomanip >  // Needed for formatting the price breakdown.
  #include < string >   // For creating an underscore border.
@@ -37,10 +36,12 @@
      
      // Prompt user for tickets sold.
      cout << "Hello. Please enter the number of adult tickets sold: ";
-     cin  >> adult_tickets >> "\n";
+     cin  >> adult_tickets;
+     cout << "\n";
      
      cout << "Now please enter the number of childrens' tickets sold: ";
-     cin  >> children_tickets >> "\n";
+     cin  >> children_tickets >> 
+     cout << "\n";
      
      // Total ticket sales.
      sum = ( ( adult_tickets * ADULT_TICKET_PRICE ) + ( children_tickets + CHILDREN_TICKET_PRICE ) );
@@ -52,7 +53,7 @@
      distributor_pay = ( sum - net_pay );
      
      // Print the sales breakdown to the user.
-     cout << "SALE BREAKDOWN:\n
+     cout << "SALE BREAKDOWN:\n";
      
      border.assign( 40, '_' );
      
