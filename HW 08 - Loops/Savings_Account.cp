@@ -1,3 +1,7 @@
+ #include < iostream >
+ #include < iomanip >
+ using namespace std;
+
 /* Savings_Account.cpp - Calculates the balance of an account after 3 months,
  * with some withdraws/deposits made each month.
  *
@@ -31,12 +35,7 @@
  * interest gained over the past three months, and the current balance.
  *
  */
- 
- # include <iostream>
- # include <iomanip>
- using namespace std;
- 
- int main(){
+ int main ( ) {
      
      double original_balance,        // The original balance of the account.
             current_balance,         // Keeps track of the account balance with deposits and withdraws.
@@ -51,14 +50,13 @@
      // Prompt for the account balance.
      cout << "Can you please tell me the starting balance on the account?: ";     
      cin  >> original_balance;
-     cout << endl;
+     cout << "\n";
      
      // Check for negative balance.
-     while (original_balance <= 0){
-           
+     while ( original_balance <= 0 ) {
            cout << "Your balance cannot be negative, nor zero. Try again: ";
            cin  >> original_balance;
-           cout << endl;
+           cout << "\n";
      }
      
      // Assign the original balance to the current balance.
@@ -67,35 +65,32 @@
      // Prompt for the annual interest rate.
      cout << "And can you please tell me your annual interest rate?: ";
      cin  >> annual_interest_rate;
-     cout << endl;
+     cout << "\n";
      
      // Check for negative interest rate.
-     while (annual_interest_rate < 0){
-           
+     while ( annual_interest_rate < 0 ) {
            cout << "The interest rate cannot be negative. Try again: ";
            cin  >> annual_interest_rate;
-           cout << endl;
+           cout << "\n";
      }
      
-     cout << endl;
+     cout << "\n";
      
      // Convert the interest rate to a percentage, then convert it to a monthly interest.
      annual_interest_rate  /= 100;                         // Ex: Turns 12 into 0.12
-     monthly_interest_rate  = (annual_interest_rate / 12); // Ex: Turns 0.12 into 0.01
+     monthly_interest_rate  = ( annual_interest_rate / 12 ); // Ex: Turns 0.12 into 0.01
      
      // Cycles for three months.
-     for (int i = 1; i < 4; i++){
-         
+     for ( int i = 1; i < 4; i++ ) {
          // Prompt for any deposits made during the month.
          cout << "Please enter the total dollar amount you deposited in month " << i << ": ";
          cin  >> deposit;
-         cout << endl;
+         cout << "\n";
          
-         while (deposit < 0){
-               
+         while ( deposit < 0 ) {
                cout << "Deposits cannot be negative. Try again: ";
                cin  >> deposit;
-               cout << endl;
+               cout << "n\";
          }
          
          // Add the depost to the account, and to the total deposits.
@@ -105,22 +100,20 @@
          // Prompt for any withdraws made during the month.
          cout << "Please enter the total dollar amount you withdrew in month " << i << ": ";
          cin  >> withdraw;
-         cout << endl;
+         cout << "n\";
          
          // Check for negative withdraws.
-         while (withdraw < 0){
-               
+         while ( withdraw < 0 ) {
                cout << "Withdraws cannot be negtaivte. Try again: ";
                cin  >> withdraw;
-               cout << endl;
+               cout << "\n";
          }
          
          // Check that withdraws don't exceed the total in the account.
-         while (withdraw > current_balance){
-               
+         while ( withdraw > current_balance ) {
                cout << "You cannot take out more money than you have. Try again: ";
                cin  >> withdraw;
-               cout << endl;
+               cout << "\n";
          }
          
          // Subtract any withdraws from the account, and add to total withdraws.
@@ -128,20 +121,20 @@
          total_withdraws += withdraw;
          
          // Add the interest to the account, and calculate the total interest gained.
-         current_balance       += (current_balance * monthly_interest_rate);
-         total_interest_gained += (current_balance * monthly_interest_rate);
+         current_balance       += ( current_balance * monthly_interest_rate );
+         total_interest_gained += ( current_balance * monthly_interest_rate );
          
-         cout << endl;
+         cout << "\n";
      
      }// End for loop.
      
      // Print out (starting balance, total deposits, total withdraws, total interest, and current balance):
-     cout << left << setw(25) << "Starting balance: "        << setw(1) << "$" << right << fixed    << setprecision(2)       << setw(12) << original_balance << endl;
-     cout << left << setw(25) << "Total deposits made: "     << setw(1) << "$" << right << setw(12) << total_deposits        << endl;
-     cout << left << setw(25) << "Total withdraws made: "    << setw(1) << "$" << right << setw(12) << total_withdraws       << endl;
-     cout << left << setw(25) << "Total interest gained: "   << setw(1) << "$" << right << setw(12) << total_interest_gained << endl;
-     cout << left << setw(25) << "Current account balance: " << setw(1) << "$" << right << setw(12) << current_balance       << endl << endl;
+     cout << left << setw ( 25 ) << "Starting balance: "        << setw ( 1 ) << "$" << right << fixed       << setprecision ( 2 )    << setw(12) << original_balance << "\n";
+     cout << left << setw ( 25 ) << "Total deposits made: "     << setw ( 1 ) << "$" << right << setw ( 1 2) << total_deposits        << "\n";
+     cout << left << setw ( 25 ) << "Total withdraws made: "    << setw ( 1 ) << "$" << right << setw ( 12 ) << total_withdraws       << "\n";
+     cout << left << setw ( 25 ) << "Total interest gained: "   << setw ( 1 ) << "$" << right << setw ( 12 ) << total_interest_gained << "\n";
+     cout << left << setw ( 25 ) << "Current account balance: " << setw ( 1 ) << "$" << right << setw ( 12 ) << current_balance       << "\n\n";
      
-     system("pause");
+     system ( "pause" );
      return 0;   
  }
