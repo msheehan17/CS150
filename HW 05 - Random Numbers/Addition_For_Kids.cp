@@ -1,7 +1,7 @@
- # include < iostream >
- # include < iomanip >  // For formatting the numbers to add.
- # include < cstdlib >  // For use of the random function.
- # include < ctime >    // Used for generating the seed value so numbers will always be random.
+ #include < iostream >
+ #include < iomanip >  // For formatting the numbers to add.
+ #include < cstdlib >  // For use of the random function.
+ #include < ctime >    // Used for generating the seed value so numbers will always be random.
  using namespace std;
  
 /* Addition_For_Kids - A program for kids to solve some simple addition.
@@ -35,8 +35,8 @@
      // Prompt the user to solve the addition problem.
      cout << "Hello user! Can you tell me the sum of the two numbers below? \n\n";
      
-     cout << right << setw(4) << number1 << "\n";
-     cout << left  << setw(1) << "+" << right << setw(3) << number2 << "\n";
+     cout << right << setw ( 4 ) << number1 << "\n";
+     cout << left  << setw ( 1 ) << "+" << right << setw ( 3 ) << number2 << "\n";
      cout << setw ( 8 ) << "________\n\n";
      
      cout << "Answer: ";
@@ -48,7 +48,7 @@
      
      cout << "The answer is: " << sum << ". Did you get it right?\n\n";
      
-     system( "pause" );
+     system ( "pause" );
      return 0;
  }// End main.
      
