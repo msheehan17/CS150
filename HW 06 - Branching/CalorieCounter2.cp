@@ -1,3 +1,7 @@
+ 
+ #include < iostream >
+ using namespace std;
+ 
 /* CalorieCounter.cpp - 
  * Author: Matthew Sheehan
  * Project: HW 6, Part 2
@@ -34,12 +38,7 @@
  * 6. Results will be printed to the screen.
  *
  */
- 
- # include <iostream>
- using namespace std;
- 
- int main()
- {
+ int main ( ) {
      // Constants, METs, conversion rate, and activity durations.
      const int RUNNING_MET     = 10;
      const int BASKETBALL_MET  = 8;
@@ -57,21 +56,21 @@
      cout << "Hello user, I can help determine your calories burned. please enter\n";
      cout << "your weight: ";
      cin  >> weight;
-     cout << endl;
+     cout << "\n";
      
-     if (weight < 0.0){
+     if ( weight < 0.0 ) {
         cout << "Weight must be positive.\n";
-        system("pause"); 
-        exit(0);
+        system ( "pause" ); 
+        exit ( 0 );
      }
      
      // Calculate weight to kilograms.
      weight /= 2.2; 
      
      // Determine each activity's calories per minute.
-     running    = (CONVERSION_RATE * weight * RUNNING_MET);
-     basketball = (CONVERSION_RATE * weight * BASKETBALL_MET);
-     sleeping   = (CONVERSION_RATE * weight * SLEEPING_MET);
+     running    = ( CONVERSION_RATE * weight * RUNNING_MET );
+     basketball = ( CONVERSION_RATE * weight * BASKETBALL_MET );
+     sleeping   = ( CONVERSION_RATE * weight * SLEEPING_MET );
      
      /* 
       * Determine how many calories were burned should the user run for 30
@@ -91,10 +90,10 @@
      cout << "\"4\" for highly active (exercises daily). \n";
      
      cin  >> activity_level;
-     cout << endl;
+     cout << "\n";
      
      // Calculate the calories burned adjusted to activity level.
-     switch (activity_level){
+     switch ( activity_level ) {
         case 1:
            running    *= .8;
            basketball *= .8;
@@ -119,7 +118,7 @@
      }
         
      // Total calories burned.
-     sum = (running + basketball + sleeping); 
+     sum = ( running + basketball + sleeping ); 
      
      
      // Output to user.
@@ -127,12 +126,12 @@
      cout << "basketball for 30 minutes, and sleep for six hours, you would burn \n";
      cout << "the following amount of calories: \n\n";
      
-     cout << "Running (30 Minutes): "    << (int) running    << endl;
-     cout << "Basketball (30 Minutes): " << (int) basketball << endl;
-     cout << "Sleeping (6 Hours): "      << (int) sleeping   << endl << endl;
+     cout << "Running (30 Minutes): "    << ( int ) running    << "\n";
+     cout << "Basketball (30 Minutes): " << ( int ) basketball << "\n";
+     cout << "Sleeping (6 Hours): "      << ( int ) sleeping   << "\n\n";
      
-     cout << "Total calories burned: " << (int) sum << endl;
+     cout << "Total calories burned: " << ( int ) sum << "\n";
      
-     system("pause");
+     system ( "pause" );
      return 0;    
  }
