@@ -1,3 +1,9 @@
+ #include < iostream >
+ using namespace std;
+
+// Prototypes
+void triangle(int height);
+
 /* Printing_Triangles.cpp - Prints triangles based on a number input from the user.
  *
  * Programmer: Matthew Sheehan
@@ -26,61 +32,49 @@
  * that is one less the original number. The inner for loop will print asteriks
  * per line, decreasing in value with each line.
  *
- */
- 
- #include <iostream>
- using namespace std;
- 
- void triangle(int height);
- 
- int main(){
+ */ 
+ int main ( ) {
      
      int user_selection; // The number the user will enter into the function.
      
      do {
-         
          cout << "Please enter a number 1 - 20, or zero to exit the program: ";
          cin  >> user_selection;
-         cout << endl;
+         cout << "\n";
          // Check that the user enters a number allowed.
-         while (user_selection < 0 || user_selection > 20){
-               
+         while ( user_selection < 0 || user_selection > 20 ) {
                cout << "Input not accepted. Please enter a number 1 - 20, or zero to exit the program: ";
                cin  >> user_selection;
-               cout << endl;
+               cout << "\n";
          }
          // User selects 0 to end the program.
-         if (user_selection == 0){
-            
+         if ( user_selection == 0 ) {
             cout << "Goodbye.\n";
-            exit(0);
+            exit ( 0 );
          }
          // Function call.      
-         triangle(user_selection);
-         cout << endl;
+         triangle ( user_selection );
+         cout << "\n";
      // Continues so long as the user hasn't entered 0.
-     } while (user_selection >= 1 && user_selection <= 20);
+     } while ( user_selection >= 1 && user_selection <= 20 );
            
-     system("pause");
+     system( "pause" );
      return 0;
      
  }// End main.
  
- void triangle(int number){
-      
+ void triangle( int number ) {
       // Print up the triangle.
-      for (int i = 0; i < number; i++){
-          for (int j = 0; j <= i; j++){
+      for ( int i = 0; i < number; i++ ){
+          for ( int j = 0; j <= i; j++ ) 
               cout << "*";
-          }
-          cout << endl;
+          cout << "\n";
       }
       // Print down the triangle.
-      for (int i = 0; i < number - 1; i++){
-          for (int j = (number - 1); j > i; j--){
+      for ( int i = 0; i < number - 1; i++ ) {
+          for ( int j = ( number - 1 ); j > i; j-- ) 
               cout << "*";
-          }
-          cout << endl;
+          cout << "\n";
       }
  }
       
