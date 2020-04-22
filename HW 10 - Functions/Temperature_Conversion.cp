@@ -1,3 +1,10 @@
+ #include < iostream >
+ #include < iomanip >
+ using namespace std;
+ 
+ // Prototypes
+ void convert(double degrees, char scale);
+
 /* Temperature_Conversion - Converts temperate from celcius to farenheit and back depending
  * on user input.
  *
@@ -23,15 +30,8 @@
  * The formulae use for converting celcius to fareneheit is:
  * (9/5) * c + 32
  *     
- */
- 
- #include <iostream>
- #include <iomanip>
- using namespace std;
- 
- void convert(double degrees, char scale);
- 
- int main(){
+ */ 
+ int main ( ){
      
      double temp; // The temperature entered by the user.
      char  scale; // The scale of the temperature.
@@ -40,34 +40,32 @@
      cout << "(\"f\" for farenheit and \"c\" for celcius): ";
      
      cin  >> temp >> scale;
-     cout << endl;
+     cout << "\n";
      
-     convert(temp, scale);
+     convert ( temp, scale );
      
-     system("pause");
+     system ( "pause" );
      return 0;    
      
  }// End main.
  
- void convert (double degrees, char scale){
-      
+ void convert ( double degrees, char scale ) {
       double converted_temp;
       
-      switch(scale)
-      {
+      switch ( scale ){
          case 'f':
          case 'F':
-              converted_temp = (double) (5 * (degrees - 32) / 9.0);
-              cout << degrees << " Farenheit is " << fixed << setprecision(1) << setw(5) << converted_temp << " degrees Celcius.\n\n";
+              converted_temp = ( double ) ( 5 * ( degrees - 32 ) / 9.0 );
+              cout << degrees << " Farenheit is " << fixed << setprecision ( 1 ) << setw ( 5 ) << converted_temp << " degrees Celcius.\n\n";
               break;
          case 'c':
          case 'C':
-              converted_temp = (double) ((9.0 / 5.0) * degrees + 32);
-              cout << degrees << " Celcius is " << fixed << setprecision(1) << setw(5) << converted_temp << " degrees Farenheit.\n\n";
+              converted_temp = ( double ) ( ( 9.0 / 5.0 ) * degrees + 32 );
+              cout << degrees << " Celcius is " << fixed << setprecision ( 1 ) << setw ( 5 ) << converted_temp << " degrees Farenheit.\n\n";
               break;
          default:
               cout << "That is not an acceptable input. Goodbye.\n\n";
-              system("pause");
-              exit(0);
+              system ( "pause" );
+              exit ( 0 );
       }
  }
