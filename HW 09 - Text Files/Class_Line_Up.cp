@@ -1,3 +1,9 @@
+ #include < iostream >
+ #include < iomanip >
+ #include < fstream >
+ #include < string >
+ using namespace std;
+
 /* Class_Line_Up.cpp - Finds the first and last named listed, in alphabetical
  * ordering, from a text file. 
  *
@@ -40,15 +46,8 @@
  * line, and the last student in their line will be printed to the screen.
  *
  */
- 
- #include <iostream>
- #include <iomanip>
- #include <fstream>
- #include <string>
- using namespace std;
- 
- int main(){
-     
+ int main ( ) {
+  
      string border_line,   // A border line for formatting the report.
             name,          // This will temporarily hold a name until it can be determined if it is the first/last student, or not.
             first_student, // The first student in the line.
@@ -58,58 +57,55 @@
      ifstream input;
      
      // Print table header.
-     cout << left << setw(3)  << " " << setw(10) << "Line" << setw(15) << "Teacher" << setw(20) << "First Student" 
-                  << setw(20) << "Last Student"  << endl;
-     border_line.assign(70, '_');
-     cout << border_line << endl << endl;
+     cout << left << setw ( 3 )  << " " << setw ( 10 ) << "Line" << setw ( 15 ) << "Teacher" << setw ( 20 ) << "First Student" 
+                  << setw ( 20 ) << "Last Student"     << "\n";
+     border_line.assign( 70, '_' );
+     cout << border_line << "\n\n";
          
-     for (int i = 1; i <= 3; i++){    
-     
-         switch(i)
-         {
-            case 1:
-                 input.open("Lineup1.txt");
+     for ( int i = 1; i <= 3; i++ ) {    
+         switch ( i ) {
+            case 1: 
+                 input.open ( "Lineup1.txt" );
                  teacher_name = "Leslie";
                  break;
             case 2:
-                 input.open("Lineup2.txt");
+                 input.open ( "Lineup2.txt" );
                  teacher_name = "Robert";
                  break;
             case 3:
-                 input.open("Lineup3.txt");
+                 input.open ( "Lineup3.txt" );
                  teacher_name = "Alice";
                  break;
          }
      
          // Check if the file cannot be opened.
-         if (input.fail()){
-                           
+         if ( input.fail ( ) ) {
             cout << "Error opening file.\n\n";
-            system("pause");
-            exit(0);
+            system( "pause" );
+            exit ( 0 );
          }
          
          // Get initial name.
-         getline(input, first_student);
+         getline ( input, first_student);
          last_student = first_student;
          // Get name to compare.  
-         while(getline(input,name)){
+         while( getline ( input,name ) ) {
              // Set new first name if applicable.
-             if (name < first_student)
+             if ( name < first_student )
                 first_student = name;
              // Set new last name if applicable.  
-             if (name > last_student)
+             if ( name > last_student )
                 last_student = name;
          }
          // Print class information.
-         cout << setw(4) << " " << setw(10) << i << setw(16) << teacher_name << setw(21) << first_student << setw(20) << last_student << endl << endl;
+         cout << setw ( 4 ) << " " << setw ( 10 ) << i << setw ( 16 ) << teacher_name << setw ( 21 ) << first_student << setw ( 20 ) << last_student << "\n\n";
          
-         input.close();
-         input.clear();
+         input.close ( );
+         input.clear ( );
      }
      
      cout << "\n";
          
-     system("pause");
+     system ( "pause" );
      return 0;        
  }
