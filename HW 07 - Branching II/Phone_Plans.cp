@@ -1,3 +1,8 @@
+#include < iostream >
+#include < iomanip >
+#include < string >
+using namespace std;
+
 /* Phone_Plans.cpp - Display's the user's bill based on their plan and minutes 
    input, and informs them if they would save money should they switch plans.
   
@@ -17,14 +22,7 @@
    that they should switch plans to save money.
    
   */
-  
-
-#include <iostream>
-#include <iomanip>
-#include <string>
-using namespace std;
-
-int main(){
+int main ( ) {
     
     // Constants.
     const double PACKAGE_A_COST = 39.99;
@@ -43,105 +41,87 @@ int main(){
     char package;
     double bill, savings;
     
-    cout << "Hello. Could you please tell me your name?: ";
-    getline(cin, name);
-    cout << endl;
+    cout << "Hello. Could you please tell me your name?: "; 
+    getline ( cin, name );
+    cout << "\n";
     
     cout << "What phone package do you have? (a/b/c): ";
     cin  >> package;
-    cout << endl;
+    cout << "\n";
     
     cout << "How many minutes have you used this month?: ";
     cin  >> minutes;
-    cout << endl;
+    cout << "\n";
     
     // Controls the bill based on the package  selected by the user.
-    switch(package)
-    {
+    switch ( package ) {
        case 'a':
        case 'A':
-            
-            // Calculate if the user has gone over their allocated minutes.
-            minutes -= PACKAGE_A_MINUTES;
-            
-            
-            // Prevent negative minutes from being used in bill calculation.
-            if (minutes < 0){
-               minutes = 0;
-            }
-            
-            
-            // Calculate bill, print bill to screen.
-            bill = PACKAGE_A_COST + (minutes * PACKAGE_A_ADDITIONAL_MINUTE_COST);
-            
-            cout << "Your total bill is $" << fixed << setprecision(2) << bill << endl << endl;
-            
-            
-            /* Say the user only uses 60 minutes over plan A, this will still
-               be under the 900 minute allocated in plan B, so this will check
-               to see if the user would be using extra minutes (going over 900
-               minutes) in plan B, then calculating a projected bill.
-            */
-            minutes -= (PACKAGE_B_MINUTES - PACKAGE_A_MINUTES);
-            
-            if (minutes < 0){
-              
-               minutes = 0;
-            }
-            
-            
-            // Then projected savings are calculated.
-            if (bill > PACKAGE_B_COST + (minutes * PACKAGE_B_ADDITIONAL_MINUTE_COST)){
-               
-               savings = (bill - PACKAGE_B_COST + (minutes * PACKAGE_B_ADDITIONAL_MINUTE_COST));
-               cout << "*You could save $"  << savings << " if you switch to plan B.\n";
-            }
-            
-            if (bill > PACKAGE_C_COST){
-                     
-               savings = bill - PACKAGE_C_COST;
-               cout << "*You could save $"  << savings << " if you switch to plan C.\n\n";
-            } 
+         // Calculate if the user has gone over their allocated minutes.
+         minutes -= PACKAGE_A_MINUTES;
+
+         // Prevent negative minutes from being used in bill calculation.
+         if ( minutes < 0 )
+            minutes = 0;
+
+         // Calculate bill, print bill to screen.
+         bill = PACKAGE_A_COST + ( minutes * PACKAGE_A_ADDITIONAL_MINUTE_COST );
+
+         cout << "Your total bill is $" << fixed << setprecision ( 2 ) << bill << "\n\n";
+
+
+         /* Say the user only uses 60 minutes over plan A, this will still
+            be under the 900 minute allocated in plan B, so this will check
+            to see if the user would be using extra minutes (going over 900
+            minutes) in plan B, then calculating a projected bill.
+         */
+         minutes -= ( PACKAGE_B_MINUTES - PACKAGE_A_MINUTES );
+
+         if ( minutes < 0 )
+            minutes = 0;
+
+         // Then projected savings are calculated.
+         if ( bill > PACKAGE_B_COST + ( minutes * PACKAGE_B_ADDITIONAL_MINUTE_COST ) ) {
+            savings = ( bill - PACKAGE_B_COST + ( minutes * PACKAGE_B_ADDITIONAL_MINUTE_COST ) );
+            cout << "*You could save $"  << savings << " if you switch to plan B.\n";
+         }
+
+         if ( bill > PACKAGE_C_COST ) {    
+            savings = bill - PACKAGE_C_COST;
+            cout << "*You could save $"  << savings << " if you switch to plan C.\n\n";
+         } 
        break;
-       
        
        // Plan B
        case 'b':
        case 'B':
-            
-            // Calculate if the user has gone over their allocated minutes.
-            minutes -= PACKAGE_B_MINUTES;
-            
-            
-            // Prevent negative minutes from being used in bill calculation.
-            if (minutes < 0){
-               minutes = 0;
-            }
-            
-            
-            // Calculate bill, print bill to screen.
-            bill = PACKAGE_B_COST + (minutes * PACKAGE_B_ADDITIONAL_MINUTE_COST);
-            
-            cout << "Your total bill is $" << bill << endl << endl;
-            
-            
-            // Let the user know if they could potentially save by switching plans..
-            if (bill > PACKAGE_C_COST){
-               
-               savings = bill - PACKAGE_C_COST;
-               cout << "*You could save $" << savings << " if you switch to plan C.\n\n";
-            } 
+         // Calculate if the user has gone over their allocated minutes.
+         minutes -= PACKAGE_B_MINUTES;
+
+         // Prevent negative minutes from being used in bill calculation.
+         if ( minutes < 0 ) 
+            minutes = 0;
+
+         // Calculate bill, print bill to screen.
+         bill = PACKAGE_B_COST + ( minutes * PACKAGE_B_ADDITIONAL_MINUTE_COST );
+
+         cout << "Your total bill is $" << bill << "\n\n";
+
+         // Let the user know if they could potentially save by switching plans..
+         if ( bill > PACKAGE_C_COST ) {
+            savings = bill - PACKAGE_C_COST;
+            cout << "*You could save $" << savings << " if you switch to plan C.\n\n";
+         } 
        break;
-       
+          
        case 'c':
        case 'C':
-            
             // Calculate bill, print bill to screen.
             bill = PACKAGE_C_COST;
             
-            cout << "Your total bill is $" << bill << endl << endl;
+            cout << "Your total bill is $" << bill << "\n\n";
     }
      
-    system("pause");
+    system ( "pause" );
     return 0;        
 } // End main.    
