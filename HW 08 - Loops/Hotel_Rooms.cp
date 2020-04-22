@@ -1,3 +1,7 @@
+ #include < iostream >
+ #include < iomanip >
+ using namespace std;
+
 /* Hotel_Rooms.cpp - Shows the number of rooms occupied on the 10-16th floors of a hotel.
  * 
  * Programmer: Matthew Sheehan
@@ -14,13 +18,8 @@
  * will display to the user the max amount of rooms available, of all the floors how
  * many of those are occupied, and the percentage of rooms occupied.
  *
- */
- 
- #include <iostream>
- #include <iomanip>
- using namespace std;
- 
- int main(){
+ */ 
+ int main ( ) {
      
      const int ROOMS_AVAILABLE = 120; // The number of rooms available on floors 10-16.
      
@@ -33,20 +32,16 @@
      cout << "Hello. I need you to please enter how many suites are occupied \n";
      cout << "on each floor.\n\n";
      
-     for (int i = 10; i < 17; i++){
-         
+     for ( int i = 10; i < 17; i++ ){
          // The 13th floor is omitted as the floors go from 12 to 14.
-         if (i == 13){
-               
+         if (i == 13)
                continue;
-         }
          
          cout << "Rooms occupied on the " << i << "th floor: ";
          cin  >> rooms_occupied;
          
          // Checks that there are no negative rooms occupied, or exceeds the ma
-         while (rooms_occupied < 0 || rooms_occupied > 20){
-               
+         while ( rooms_occupied < 0 || rooms_occupied > 20 ) {
                cout << "Rooms occupied can only be 1-20. Try again: ";
                cin  >> rooms_occupied;
          }
@@ -56,16 +51,16 @@
      }
      
      // Calculates the percent of rooms occupied.
-     percent_occupied = ((double) sum / ROOMS_AVAILABLE);
+     percent_occupied = ( ( double ) sum / ROOMS_AVAILABLE );
      percent_occupied *= 100;
      
      // Print out how many rooms are available, how many are occupied, and what that percentage is.
-     cout << left << setw(25) << "\nTotal suites available: " << right << setw(9)          << ROOMS_AVAILABLE << endl;
-     cout << left << setw(25) << "Rooms occupied: "           << right << setw(8)          << sum             << endl;
-     cout << left << setw(25) << "Percentage occupied: "      << right << setw(8) << fixed << setprecision(2) << percent_occupied 
-          << "%\n\n";
+     cout << left << setw ( 25 ) << "\nTotal suites available: " << right << setw ( 9 )          << ROOMS_AVAILABLE << "\n";
+     cout << left << setw ( 25 ) << "Rooms occupied: "           << right << setw ( 8 )          << sum             << "\n";
+     cout << left << setw ( 25 ) << "Percentage occupied: "      << right << setw ( 8 ) << fixed << setprecision ( 2 ) << percent_occupied 
+          << "%\n\n"; 
  
-     system("pause");
+     system ( "pause" );
      return 0;
  }
  
