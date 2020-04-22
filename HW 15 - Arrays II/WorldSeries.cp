@@ -27,7 +27,6 @@ int main( ) {
     while ( count < TEAMS_ARRAY_SIZE && input >> teams [ count ] )
           count++;
           
-    
     input.clear ( );
     
     count = 0;
@@ -35,6 +34,6 @@ int main( ) {
     while ( input >> world_series_winners [ count ] )
           count++;
     
-    system("pause");
+    system ( "pause" );
     return 0;
 }
