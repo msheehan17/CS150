@@ -1,4 +1,3 @@
- 
  #include < iostream >
  #include < iomanip >
  using namespace std;
@@ -40,16 +39,16 @@
  
  int main ( ) {
      // The 2D array that holds the cities' temperature.
-     int weather_patterns[ROWS][COLUMNS] = {{68, 69, 70, 73, 75, 79, 83, 84, 83, 79, 73, 68},  // Los Angeles
-                                            {39, 42, 50, 62, 72, 80, 85, 84, 76, 65, 54, 44},  // New York
-                                            {73, 74, 75, 78, 81, 84, 85, 86, 85, 82, 78, 76},  // Miami
-                                            {47, 51, 55, 59, 65, 70, 75, 75, 69, 60, 51, 46}}; // Seattle
+     int weather_patterns[ROWS][COLUMNS] = { { 68, 69, 70, 73, 75, 79, 83, 84, 83, 79, 73, 68 },  // Los Angeles
+                                             { 39, 42, 50, 62, 72, 80, 85, 84, 76, 65, 54, 44 },  // New York
+                                             { 73, 74, 75, 78, 81, 84, 85, 86, 85, 82, 78, 76 },  // Miami
+                                             { 47, 51, 55, 59, 65, 70, 75, 75, 69, 60, 51, 46 } }; // Seattle
      
      // Print the weather report of the city temperature averages.
      printWeatherReport ( weather_patterns, ROWS ); 
      cout << "\n\n";   
      
-     system( "pause" );
+     system ( "pause" );
      return 0;
  }
  
@@ -98,7 +97,7 @@
     }
     
     cout << left << setw ( 17 ) << "\nMonth Avg: ";
-    monthAvg(theArray);
+    monthAvg ( theArray );
  }
  
  // Calculate the average monthly temperature.
@@ -120,6 +119,3 @@
       cout << "\n\n";
  } 
           
-      
-          
-      
