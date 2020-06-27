@@ -1,78 +1,51 @@
- #include < iostream >
- using namespace std;
+ #include <iostream>
  
-/* CalorieCounter.cpp - 
- * Author: Matthew Sheehan
- * Project: HW 3, Project 1
- * Description: This program will take the weight of a person, and determine how
- * many calories they burn performing various aerobic activities.
+/* CalorieCounter.cp - Based on the user's weight determines the calories burned perfoming various activities.
  *
- * Algortihm: 
- *
- * 1. Prompt the user for their weight.
- *
- * 2. Because the formula calculating calories burned requires the user's weight 
- * to be in kilograms, the user's weight will be divided by 2.2 to get weight 
- * in kiligrams.
- *
- * 3. The formula for determining how many calories are burned per minute is
- * (weight in kg * MET * 0.0175).  The variable MET (metabolic equivalents) will
- * be different for each activity. Running (at 6mph) is 10 METS, playing basketball
- * is 8, and sleeping is 1. 
- *
- * 4. Create double variables named after each ativity. Using the formula in 
- * step 3, calculate each activity's calories burned per minute, and store it 
- * in the respective variable.
- *
- * 5. This program will determine how many calories are burned should the user
- * run for 30 minutes, play basketball for 30 minutes, and sleep for 6 hours.
- * To determine the amount of calories burned (based on the whole duration), we will 
- * need to take running's calories per minutes and mutiply it by 30 (for 30 minutes), 
- * take basketball's calories per minute and multiply it by 30, and take 
- * sleeping's calories per minute and multiply it by 360 (1 hour = 60 minutes, 
- * so 6 hours = 360 minutes). 
- *
- * 6. Print to the user how many calories they burned during each activity, and
- * the total amount of calories they burned as a whole.
- *  
+ * Author: Matt Sheehan
  */
- int main ( ) {
-     double weight, running, basketball, sleeping;
-     double sum; // This will store the total calories burned.
+int main () {
+    double user_weight_in_pounds;
+    double user_weight_in_kilograms;
+    double divisor_for_turning_pouds_to_kilograms = 2.2;
+    double standard_rate_for_determining_calorie_rates = 0.0175; // Calorie formula = (standard rate * weight in kilograms * activity metabolic equivalent)
+    double running_calorie_rate;
+    double calories_burned_running;
+    double basketball_calorie_rate;
+    double calories_burned_playing_basketball;
+    double sleeping_calorie_rate;
+    double calories_burned_sleeping;
+    double total_calories_burned;
+    int running_metabolic_equivalent = 10;
+    int basketball_metabolic_rate = 8;
+    int sleeping_metabolic_rate = 1;
+    int half_hour_in_minutes = 30;
+    int six_hours_in_minutes = 360;
      
-     cout << "Hello user, please enter your weight: " << "\n";
-     cin  >> weight;
-     cout << "\n";
+    std::cout << "Hello user, please enter your weight: ";
+    std::cin  >> user_weight_in_pounds;
+    std::cout << "\n";
      
-     // Calculate weight to kilograms.
-     weight /= 2.2; 
+    user_weight_in_kilograms = (user_weight_in_pounds / divisor_for_turning_pouds_to_kilograms);
      
-     // Determine each activity's calories per minute.
-     running    = ( 0.0175 * weight * 10 );
-     basketball = ( 0.0175 * weight * 8 );
-     sleeping   = ( 0.0175 * weight * 1 );
+    running_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * running_metabolic_equivalent);
+    basketball_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * basketball_calorie_rate);
+    sleeping_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * sleeping_calorie_rate);
      
-     /* Determine how many calories were burned should the user run for 30
-      * minutes, play basketball for 30 minutes, and sleep for 6 hours.
-      */
-     running    *= 30;
-     basketball *= 30;
-     sleeping   *= 360;
+    calories_burned_running = (running_calorie_rate * half_hour_in_minutes);
+    calories_burned_playing_basketball = (basketball_calorie_rate * half_hour_in_minutes);
+    calories_burned_sleeping = (sleeping_calorie_rate * six_hours_in_minutes);
      
-     // Total calories burned.
-     sum = ( running + basketball + sleeping ); 
+    total_calories_burned = (calories_burned_running + calories_burned_playing_basketball + calories_burned_sleeping);
+    
+    std::cout << "Given your weight, this is your project calories burned for the following activities: \n\n";\
+    
+    std::cout << " - Running (1/2 Hour): " << calories_burned_running << "\n";
+    std::cout << " - Playing basketball (1/2 hour): " << calories_burned_playing_basketball << "\n";
+    std::cout << " - Sleeping (6 hours): " << calories_burned_sleeping << "\n\n";
+    
+    std::cout << "Total calories burned: " << total_calories_burned << "\n\n";
      
-     cout << "Based on your your weight, were you to run for 30 minutes, play \n";
-     cout << "basketball for 30 minutes, and sleep for six hours, you would burn \n";
-     cout << "the following amount of calories \n" << "\n";
-     
-     cout << "Running (30 Minutes): "    << running    << "\n";
-     cout << "Basketball (30 Minutes): " << basketball << "\n";
-     cout << "Sleeping (6 Hours): "      << sleeping   << "\n";
-     cout << endl;
-     
-     cout << "Total calories burned: " << sum << "\n";
-     
-     system("pause");
-     return 0;    
+    system("pause");
+    return 0;
  }

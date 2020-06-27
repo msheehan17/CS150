@@ -1,39 +1,20 @@
- #include < iostream >
- using namespace std;
- 
-/* RestaurantBill.cpp - Calculate a restaurant bill, with tax and tip.
- * Author: Matthew Sheehan
- * Module: 2
- * Project: Homework 2, Project 1
- * Description: The bill will total the purchases, add tax, and add a 15% 
- * tip.
- * 
- * Algorithm:
- * 
- * 1. Create double variables meal_cost, tax_amount, tip_amount, and total_bill. 
- *
- * 2. Set tax amount equal to (meal_cost * .0675), as tax is 6.75%.
- *
- * 3. Set tip amount equal to the ((tax_amount + meal_cost) * .15), as the
- * recommended tip for this program will be 15%.
- * 
- * 4. Set total_bill equal to (tax_amount + meal_cost + tip_amount).
- *
- * 5. Print the cost break down to the user.
- *
- */
- int main ( ) {
-     double meal_cost  = 44.50;
-     double tax_amount = ( meal_cost * 0.675 );
-     double tip_amount = ( ( meal_cost + tip_amount) * 0.15 );
-     double total_bill = ( meal_cost + tax_amount + tip_amount );
+#include <iostream>
+
+/* RestaurantBill.cp - Given the meal cost, determine the tax, tip (20%), and total bill.
+*
+* Author: Matt Sheehan
+*/
+int main () {
+     double meal_cost = 44.50;
+     double meal_tax = (meal_cost * 0.675);
+     double tip_amount = ((meal_cost + meal_tax) * 0.20);
+     double total_bill = (meal_cost + meal_tax + tip_amount);
      
-     cout << "Hello, your total bill is " << total_bill << "\n";
-     cout << "Meal Cost: "  << meal_cost  << "\n";
-     cout << "Tax Amount: " << tax_amount << "\n";
-     cout << "Tip: "        << tip_amount << "\n";
+     std::cout << "Hello, your total bill is $" << total_bill << "\n";
+     std::cout << "Meal Cost: $" << meal_cost  << "\n";
+     std::cout << "Tax Amount: $" << meal_tax << "\n";
+     std::cout << "Tip: $" << tip_amount << "\n";
     
      system("pause");
      return 0;   
-}// End main.
-     
+}
