@@ -54,7 +54,7 @@
      double calcFill ( );
        void showInfo ( );
      
-     // Desturctor.
+     // Destructor.
      ~GasTank ( ) { };  
  };
  
