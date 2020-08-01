@@ -1,54 +1,36 @@
 #include "Player.h"
-#include <iostream> // For cout/cin
+#include <iostream>
 
-// Full constructor; sets the player's name, score is set to 1000.
-Player::Player(std::string nameArgument)
-{
-    name = nameArgument;
+Player::Player(std::string newName){
+    name = newName;
     score = 1000;
 }
 
-// No-argument constructor; sets the player's name to "John Smith" and score to 1000.
-Player::Player()
-{
+Player::Player() {
     name = "John Smith";
     score = 1000;
 }
 
-// Set the player's name.
-void Player::setName(std::string nameArgument)
-{
-    // Control the user entering an invalid argument.
-    while (nameArgument == "" || name == " ")
-    {
+void Player::setName(std::string newName) {
+    while (newName == "" || newName == " ") {
         std::cout << "Name cannot be blank. Try again: ";
-        std::cin >> nameArgument;
+        std::cin >> newName;
     }
-    
-    name = nameArgument;
+    name = newName;
 }
 
-// Set the player's score.
-void Player::setScore(int scoreArgument)
-{
-    // Control the user entering an invalid argument.
-    while (scoreArgument < 0 && score > 1000)
-    {
+void Player::setScore(int newScore) {
+    while (newScore < 0 && newScore > 1000) {
         std::cout << "Score must be between 0 and 1000. Try again: ";
-        std::cin >> scoreArgument;
+        std::cin >> newScore;
     }
-    
-    score = scoreArgument;
+    score = newScore;
 }
 
-// Returns the player's name.
-std::string Player::getName()
-{
+std::string Player::getName() {
     return name;
 }
 
-// Returns the player's score.
-int Player::getScore()
-{
+int Player::getScore() {
     return score;
 }

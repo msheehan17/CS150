@@ -2,8 +2,7 @@
 #define PLAYER_H
 #include <string>
 
-class Player
-{
+class Player {
     private:
         std::string name;
         int score;
