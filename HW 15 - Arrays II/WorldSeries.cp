@@ -1,39 +1,35 @@
-#include < iostream >
-#include < string >
-#include < vector >
-#include < fstream >
-using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
 
-const int TEAMS_ARRAY_SIZE = 30; // The number of teams that will be entered into the array.
+const int TEAMS_ARRAY_SIZE = 30;
 
-int main( ) {
+/*
+ *
+ *
+ */
+int main() {
+    int number_of_inputs = 0;
+    string team_names[TEAMS_ARRAY_SIZE];
+    vector <string> world_series_winners;
     
-    string teams [ TEAMS_ARRAY_SIZE ];     // The array that will store the team names. 
-    vector < string > world_series_winners; // The vector that will store the world series team names.
-    
-    // Create an input stream and connect it to the team names file.
-    ifstream input ( "Teams.txt" );
-    
-    // The count of inputs made from the file.
-    int count = 0;
-
-    // Check if the file exists and if it doesn't, close the program.
-    if ( ! input ) {
+    ifstream file_input ("Teams.txt");
+    if (!file_input) {
        cout << "Error locating file.\n";
        exit(0);
     }
     
-    // Take in names from the file and store them in the array.
-    while ( count < TEAMS_ARRAY_SIZE && input >> teams [ count ] )
-          count++;
+    while (number_of_inputs < TEAMS_ARRAY_SIZE && file_input >> team_names[number_of_inputs])
+        count++;
           
-    input.clear ( );
+    file_input.clear();
     
-    count = 0;
+    number_of_inputs = 0;
     
-    while ( input >> world_series_winners [ count ] )
-          count++;
+    while (file_input >> world_series_winners[number_of_inputs])
+        number_of_inputs++;
     
-    system ( "pause" );
+    system ("pause");
     return 0;
 }

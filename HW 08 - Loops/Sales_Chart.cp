@@ -1,110 +1,77 @@
- #include < iostream >
- using namespace std;
+ #include <iostream>
 
-/* Sales_Chart.cpp - Displays a bar graph based on the sales numbers.
+/* Sales_Chart.cp - Displays the sales for each stores.
  *
- * Programmer: Matthew Sheehan
- *
- * Homework 8, Part 2.
- * 
- * Algorithm:
- *
- * 1. The program will prompt the user to enter the sales numbers (rounded to 
- * the nearest hundred).  Should the user enter negative value, or a value that
- * is not evenly divisible by 100, the program will prompt the user to enter a
- * number that follow the rules. The user will do this for three seperate stores.
- *
- * 2. Following the user entering the sales for the three seperate stores, a for
- * loop (one for each store) will print an asterik for each $100 the store made
- * that day. The loop will iterate for each $100 dollar you can take from the
- * sales (i.e. 500 dollars will make the loop cycle 5 times, 200 makes two times,
- * etc.)
- *                
- */ 
- int main ( ) {
+ * Author: Matt Sheehan
+ */
+ int main () {
+     int total_revenue_from_store_one;
+     int total_revenue_from_store_two;
+     int total_revenue_from_store_three;
      
-     int store_one_sales, store_two_sales, store_three_sales; // Store sales.
+     std::cout << "Please enter today's sales for store #1 (round to nearest hundre value): ";
+     std::cin >> total_revenue_from_store_one;
      
-     // Prompt for store one's sales.
-     cout << "Please enter today's sales for store #1 (round to nearest hundre value): ";
-     cin  >> store_one_sales;
-     
-     // Checks that the sales total is not negative.
-     while ( store_one_sales < 0 ) {
-           cout << "That is not an acceptable input. Try again: ";
-           cin  >> store_one_sales;
+     while (total_revenue_from_store_one < 0) {
+        std::cout << "That is not an acceptable input. Try again: ";
+        std::cin >> total_revenue_from_store_one;
      }
      
-     // Checks that the sales total is rounded to the nearest 100.
-     while ( ( store_one_sales % 100 ) != 0 ) {
-           cout << "The number must be evenly divisible by 100. Try again: ";
-           cin  >> store_one_sales;
+     while ((total_revenue_from_store_one % 100) != 0) {
+        std::cout << "The number must be evenly divisible by 100. Try again: ";
+        std::cin >> total_revenue_from_store_one;
      }
      
-     // Determine the number of $100 increments come from the sales total.
-     store_one_sales /= 100;
+     total_revenue_from_store_one /= 100;
      
-     // Prompt for store two's sales.
-     cout << "Please enter today's sales for store #2 (round to nearest hundre value): ";
-     cin  >> store_two_sales;
+     // Store two:
+     std::cout << "Please enter today's sales for store #2 (round to nearest hundre value): ";
+     std::cin >> total_revenue_from_store_two;
      
-     // Checks that the sales total is not negative.
-     while ( store_two_sales < 0 ) {
-           cout << "That is not an acceptable input. Try again: ";
-           cin  >> store_two_sales;
+     while (total_revenue_from_store_two < 0) {
+        std::cout << "That is not an acceptable input. Try again: ";
+        std::cin >> total_revenue_from_store_two;
      }
      
-     // Checks that the sales total is rounded to the nearest 100.
-     while ( ( store_two_sales % 100 ) != 0 ) {
-           cout << "The number must be evenly divisible by 100. Try again: ";
-           cin  >> store_two_sales;
+     while ((total_revenue_from_store_two % 100) != 0) {
+        std::cout << "The number must be evenly divisible by 100. Try again: ";
+        std::cin >> total_revenue_from_store_two;
      }
      
-     // Determine the number of $100 increments come from the sales total.
-     store_two_sales /= 100;
+     total_revenue_from_store_two /= 100;
      
-     // Prompt for store three's sales.
-     cout << "Please enter today's sales for store #3 (round to nearest hundre value): ";
-     cin  >> store_three_sales;
+     // Store Three:
+     std::cout << "Please enter today's sales for store #3 (round to nearest hundre value): ";
+     std::cin >> total_revenue_from_store_three;
      
-     // Checks that the sales total is not negative.
-     while ( store_three_sales < 0 ) {
-           cout << "That is not an acceptable input. Try again: ";
-           cin  >> store_three_sales;
+     while (total_revenue_from_store_three < 0) {
+        std::cout << "That is not an acceptable input. Try again: ";
+        std::cin >> total_revenue_from_store_three;
      }
      
-     // Checks that the sales total is rounded to the nearest 100.
-     while ( ( store_three_sales % 100 ) != 0 ) {
-           cout << "The number must be evenly divisible by 100. Try again: ";
-           cin  >> store_three_sales;
+     while ((total_revenue_from_store_three % 100) != 0) {
+        std::cout << "The number must be evenly divisible by 100. Try again: ";
+        std::cin >> total_revenue_from_store_three;
      }
      
-     // Determine the number of $100 increments come from the sales total.
-     store_three_sales /= 100;
+     total_revenue_from_store_three/= 100;
      
-     // Output the sales for today.
-     cout << "\nProjection of today's sales: \n\n";
+     std::cout << "\nProjection of today's sales (* = $100.00): \n\n";
+     std::cout << "Store #1: ";
      
-     // Store one's sales.
-     cout << "Store #1: ";
+     for ( int i = 0; i < total_revenue_from_store_one; i++)
+         std::cout << "*";
      
-     for ( int i = 0; i < store_one_sales; i++ ) {
-         cout << "*";
+     std::cout << "\nStore #2: ";
      
-     // Store two's sales.
-     cout << "\nStore #2: ";
+     for ( int i = 0; i < total_revenue_from_store_two; i++)
+         std::cout << "*";
      
-     for ( int i = 0; i < store_two_sales; i++ ) 
-         cout << "*";
+     std::cout << "\nStore #3: ";
      
-     // Store three's sales.
-     cout << "\nStore #3: ";
+     for ( int i = 0; i < total_revenue_from_store_three; i++)
+         std::cout << "*";
      
-     for ( int i = 0; i < store_three_sales; i++ )
-         cout << "*";
-     
-     cout << "\n\n* = $100. \n\n";
-     
-     system ( "pause" );
+     system ("pause");
      return 0;
  }

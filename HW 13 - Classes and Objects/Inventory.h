@@ -2,38 +2,31 @@
 
 #ifndef INVENTORY_H
 #define INVENTORY_H
-#include < string >
-using namespace std;
+#include <string>
 
 class Inventory {
      
  private:
-     string item_number,  // The item number.
-            description;  // A description of the item.
-        int quantity;     // How many of the item is on hand.
-     double cost;         // The cost per item.
+    std::string item_number;
+    std::string item_description;
+    int item_quantity;
+    double item_cost;
   
  public:
-     // Constructors. 
-     Inventory ( );
-     Inventory ( string item_number, string description, int quantity, double cost );
+     Inventory();
+     Inventory(std::string item_number, std::string item_description, int item_quantity, double item_cost);
      
-     // Mutator methods.
-     void setItemNumber ( string item_number );
-     void setDescription ( string description );
-     void setQuantity ( int quantity );
-     void setCost ( double cost );
+     void setItemNumber(std::string item_number);
+     void setItemDescription(std::string item_description);
+     void setItemQuantity(int item_quantity);
+     void setItemCost(double item_cost);
      
-     // Accessor methods.
-     string getItemNumber ( );
-     string getDescription ( );
-     int getQuantity ( );
-     double getCost ( );
-     
-     // Calculating item's total cost.
-     double calcTotalCost ( ); 
-     
-     // Prints information on the item.
-     void printItemReport ( );
+     std::string getItemNumber();
+     std::string getItemDescription();
+     int getItemuantity();
+     double getItemCost();
+    
+     double calculateTotalCost();
+     void printItemReport();
 };
 #endif

@@ -1,55 +1,45 @@
- #include < iostream >
- #include < iomanip >  // For formatting the numbers to add.
- #include < cstdlib >  // For use of the random function.
- #include < ctime >    // Used for generating the seed value so numbers will always be random.
- using namespace std;
+ #include <iostream>
+ #include <iomanip>
+ #include <cstdlib>
+ #include <ctime>
  
-/* Addition_For_Kids - A program for kids to solve some simple addition.
- * Author: Matthew Sheehan
- * Project: HW5, Part 4
+/* Addition_For_Kids.cp - A game where kids guess the sum of two random numbers.
  *
- * Algorithm:
- *
- * 1. Randomly generate two numbers and print them to the screen.
- *
- * 2. Prompt the user for the sum of the solution.
- *
- * 3. After the user has answered the solution, print the sum to the screen
- * so they can determine if they got the answer right or not.
- *
+ * Author: Matt Sheehan
  */
  int main() {
-     // Constants, the max and min value of the random number range.
-     const int MIN_VALUE = 1, MAX_VALUE = 99;
+     const int RANDOM_NUMBER_RANGE_MIN_VALUE = 1;
+     const int RANDOM_NUMBER_RANGE_MAX_VALUE = 99;
      
-     // Instance variables.
-     int number1, number2, sum; // The randomly generated numbers and their sum.
-     int user_guess; // Holds the user's guess, but won't be used for anything.
-     unsigned seed = time(0); // Used to generate a new seed value.
+     int first_randomly_guessed_number;
+     int second_randomly_guessed_number;
+     int sum_of_the_two_random_numbers;
+     int user_guess;
+     unsigned seed = time(0);
      
-     // Generate the random numbers.
-     srand ( seed );
-     number1 = ( rand ( ) % ( MAX_VALUE - MIN_VALUE + 1 )  + MIN_VALUE ); 
-     number2 = ( rand ( ) % ( MAX_VALUE - MIN_VALUE + 1 )  + MIN_VALUE );
+     srand (seed);
      
-     // Prompt the user to solve the addition problem.
-     cout << "Hello user! Can you tell me the sum of the two numbers below? \n\n";
+     first_randomly_guessed_number = (rand() % (RANDOM_NUMBER_RANGE_MAX_VALUE -
+     RANDOM_NUMBER_RANGE_MAX_VALUE + 1) + RANDOM_NUMBER_RANGE_MIN_VALUE );
      
-     cout << right << setw ( 4 ) << number1 << "\n";
-     cout << left  << setw ( 1 ) << "+" << right << setw ( 3 ) << number2 << "\n";
-     cout << setw ( 8 ) << "________\n\n";
+     second_randomly_guessed_number = (rand() % (RANDOM_NUMBER_RANGE_MAX_VALUE -
+     RANDOM_NUMBER_RANGE_MAX_VALUE + 1) + RANDOM_NUMBER_RANGE_MIN_VALUE );
      
-     cout << "Answer: ";
-     cin  >> user_guess;
-     cout << "\n\n";
+     std:: cout << "Hello! Can you tell me the sum of the two numbers below? \n\n";
      
-     // Calculate the sum and print it to the user.
-     sum = ( number1 + number2 );
+     std::cout << std::right << std::setw(4) << first_randomly_guessed_number << "\n";
+     std::cout << std::left  << std::setw(1) << "+" << std::right << std::setw(3) << second_randomly_guessed_number
+     << "\n";
+     std::cout << std::setw(8) << "________\n\n";
      
-     cout << "The answer is: " << sum << ". Did you get it right?\n\n";
+     std::cout << "Your answer: ";
+     std::cin  >> user_guess;
+     std::cout << "\n\n";
+     
+     sum_of_the_two_random_numbers = (first_randomly_guessed_number + second_randomly_guessed_number);
+     
+     std::cout << "The answer is: " << sum_of_the_two_random_numbers << ". Did you get it right?\n\n";
      
      system ( "pause" );
      return 0;
- }// End main.
-     
-      
+ }

@@ -2,104 +2,81 @@
 #include <time.h>
 #include <cstdlib>
 #include <iomanip>
-using namespace std;
 
-void printArray ( int theArray [ ] );
-int  checkMatchingNumbers ( int lotteryArray [ ], int userNumbers [ ] );
-void determineNumbersMatched ( int count );
+ void printArray(int the_array[]);
+ int  checkMatchingNumbers(int lottery_array[], int user_numbers[]);
+ void determineNumbersMatched(int numbers_matched);
 
-const int SIZE = 5; // The size of the arrays.
+ const int ARRAY_SIZE = 5;
 
-/* Lottery.cpp - Determines if the user won the lottery based on the numbers input.
- *
- * HW 14, Part 1.
- * 
- * Programmer: Matthew Sheehan
- *
- * Algorithm:
- *
- * 1. The program will prompt the user to enter numbers of their choice. 
- * 
- * 2. An array of random numbers will be created and compared against the five
- * number entered in by the user. This will be done by cycling through each 
- * element in both arrays and adding one to a count varaible for each match.
- * After cycling through each element, the number of matches will be returned.
- * 
- * 3. The number returned by the function that finds matches in the array will
- * be fed into a switch statment, and based on the number of matches, determine
- * if the user won the lottery or not (yes if the user matches all five numbers).
- */
-  int main ( ) {
-     int winningDigits [ SIZE] ; // The five numbers randomly generated for the lottery.
-     int player [ SIZE ];        // The five numbers guessed by the user.
-     int user_number;         // The number entered by the user.
- 
-     // Generate random numbers for the lottery.
-     srand ( time ( 0 ) );
-     
-     for ( int i = 0; i < SIZE; i++ )
-         winningDigits [ i ] = ( rand ( ) % 6 + 1 );
-        
-     cout << "Welcome to the lottery machine. Please enter numbers 1-6 for prompts.\n\n";
-      
-     // Prompt the user for numbers.
-     for ( int i = 0; i < SIZE; i++ ) {
-         cout << "Please enter number " << i + 1 << ": ";
-         cin  >> user_number;
-         
-         while ( user_number < 1 || user_number > 6 ) {
-               cout << "Numbers entered must be 1 - 6. Try again: ";
-               cin  >> user_number;
-         }
-         player [ i ] = user_number;
-     }  
-     
-     // Print the lottery numbers.
-     cout << left << setw ( 18 ) << "\nLottery numbers: ";
-     printArray ( winningDigits );
-     cout <<  "\n";
-     
-     // Print the numbers entered by the user.
-     cout << left << setw ( 17 ) << "Your numbers: ";
-     printArray ( player );
-     cout << "\n\n";
-     
-     // Determine which numbers matched up, and if the user won the lottery.
-     determineNumbersMatched ( checkMatchingNumbers ( winningDigits, player ) );
-    
-     system ( "pause" );
-     return 0;
+ void printArray(int the_array[]) {
+    for (int i = 0; i < ARRAY_SIZE; i++)
+        std::cout << the_array[i] << " ";
  }
  
- // Prints the elements of the array entered.
- void printArray ( int theArray [ ] ){
-    for ( int i = 0; i < SIZE; i++  )
-        cout << theArray[i] << " ";
- }
- 
- int checkMatchingNumbers ( int lotteryArray [ ], int userNumbers [ ] ) {
-     int count = 0;
+ int checkMatchingNumbers(int lottery_array[], int user_numbers[]) {
+     int numbers_matched = 0;
      
-     for ( int i = 0; i < SIZE; i++ ) {
-         if ( lotteryArray [ i ] == userNumbers [ i ] )
-            count++;
+     for (int i = 0; i < ARRAY_SIZE; i++) {
+         if (lottery_array[i] == user_numbers[i])
+            numbers_matched++;
      }
-     return count;
+     return numbers_matched;
  }
  
- void determineNumbersMatched ( int count ) {
-      switch ( count ) {
+ void determineNumbersMatched (int numbers_matched) {
+      switch (numbers_matched) {
           case 0:
-               cout << "Sorry, no numbers matched.\n\n";
+               std::cout << "Sorry, no numbers matched.\n\n";
                break;
           case 1: case 2: case 3: case 4: 
-               cout << "You matched " << count << " numbers, but did not win the lottery.\n\n";
+               std::cout << "You matched " << numbers_matched << " numbers, but did not win the lottery.\n\n";
                break;
           case 5:
-               cout << "Congratulations! You won the lottery.\n\n";
+               std::cout << "Congratulations! You won the lottery.\n\n";
                break;
           default:
                break;
       }
  }
-               
+            
+/* Lottery.cpp - A game for playing the lottery.
+ *
+ * Author: Matt Sheehan
+ */
+int main ( ) {
+    int winning_digits[ARRAY_SIZE];
+    int player_guesses[ARRAY_SIZE];
+    int player_guess;
+
+    srand(time(0));
+    
+    for (int i = 0; i < ARRAY_SIZE; i++)
+        winning_digits[i] = (rand() % 6 + 1);
+       
+    std::cout << "Welcome to the lottery machine. Please enter numbers 1-6 for prompts.\n\n";
+     
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        std::cout << "Please enter number " << i + 1 << ": ";
+        std::cin >> player_guess;
+       
+        while (player_guess < 1 || player_guess > 6) {
+            std::cout << "Numbers entered must be 1 - 6. Try again: ";
+            std::cin >> player_guess;
+         }
+        player_guesses[i] = player_guess;
+     }
+    
+    std::cout << std::left << std::setw(18) << "\nLottery numbers: ";
+    printArray(winning_digits);
+    std::cout << "\n";
+    
+    std::cout << std::left << std::setw(17) << "Your numbers: ";
+    printArray(player_guesses);
+    std::cout << "\n\n";
+    
+    determineNumbersMatched (checkMatchingNumbers(winning_digits, player_guesses));
+   
+    system ("pause");
+    return 0;
+}

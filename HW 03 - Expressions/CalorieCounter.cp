@@ -29,8 +29,8 @@ int main () {
     user_weight_in_kilograms = (user_weight_in_pounds / divisor_for_turning_pouds_to_kilograms);
      
     running_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * running_metabolic_equivalent);
-    basketball_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * basketball_calorie_rate);
-    sleeping_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * sleeping_calorie_rate);
+    basketball_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * basketball_metabolic_rate);
+    sleeping_calorie_rate = (standard_rate_for_determining_calorie_rates * user_weight_in_kilograms * sleeping_metabolic_rate);
      
     calories_burned_running = (running_calorie_rate * half_hour_in_minutes);
     calories_burned_playing_basketball = (basketball_calorie_rate * half_hour_in_minutes);

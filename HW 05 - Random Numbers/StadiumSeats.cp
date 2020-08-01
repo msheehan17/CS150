@@ -1,76 +1,60 @@
-#include < iostream >
-#include < iomanip > // Needed for formatting the price breakdown.
-#include < string >  // A border for the formatted printout.
-using namespace std;
+#include <iostream>
+#include <iomanip>
+#include <string>
 
-/* Stadium_Seats.cpp - Calculates total of all seats sold in the stadium.
- * Author: Matthew Sheehan
- * Project: HW5, Part 1.
+/* Stadium_Seats.cpp - Calculate the total revenue from each seating section/total.
  *
- * Algorithm:
- *
- * 1. Prompt the user to enter the number of class A, B, and C seats sold in
- * the stadium.
- *
- * 2. Multiply the number of seats sold by their respective seat price.
- * 
- * 3. Add the total for class A, B, and C seats, and print the breakdown, plus 
- * sum to the user.
+ * Author: Matt Sheehan
  */
-int main ( ) {
-     // Ticket price constants.
-     const double CLASS_A_SEAT_PRICE = 15.00;
-     const double CLASS_B_SEAT_PRICE = 12.00;
-     const double CLASS_C_SEAT_PRICE =  9.00;
+int main () {
+    const double CLASS_A_SEAT_PRICE = 15.00;
+    const double CLASS_B_SEAT_PRICE = 12.00;
+    const double CLASS_C_SEAT_PRICE = 9.00;
      
-     // Instance variables.
-     int    class_a_seats, class_b_seats, class_c_seats;
-     double class_a_total, class_b_total, class_c_total, sum;
-     string border; // A border for the formatted printout.
+    int number_of_class_a_seats_sold;
+    int number_of_class_b_seats_sold;
+    int number_of_class_c_seats_sold;
+    double class_a_total_revenue;
+    double class_b_total_revenue;
+    double class_c_total_revenue;
+    double total_revenue;
+    std::string dotted_border_for_decoration;
      
+    std::cout << "Hello, please enter the number of class A seats sold: ";
+    std::cin >> number_of_class_a_seats_sold;
+    std::cout << "\n";
      
-     // Prompt user for seat breakdown.
-     cout << "Hello, please enter the number of class A seats sold: ";
-     cin  >> class_a_seats;
-     cout << "\n";
+    std::cout << "Now please enter the number of class B seats sold: ";
+    std::cin >> number_of_class_b_seats_sold;
+    std::cout << "\n";
      
-     cout << "Now please enter the number of class B seats sold: ";
-     cin  >> class_b_seats;
-     cout << "\n";
+    std::cout << "Finally, enter the number of class C seats sold: ";
+    std::cin >> number_of_class_c_seats_sold;
+    std::cout << "\n";
      
-     cout << "Finally, enter the number of class C seats sold: ";
-     cin  >> class_c_seats;
-     cout << "\n";
+    class_a_total_revenue = (double) (number_of_class_a_seats_sold * CLASS_A_SEAT_PRICE);
+    class_b_total_revenue = (double) (number_of_class_b_seats_sold * CLASS_B_SEAT_PRICE);
+    class_c_total_revenue = (double) (number_of_class_c_seats_sold * CLASS_C_SEAT_PRICE);
+    total_revenue = (class_a_total_revenue + class_b_total_revenue + class_c_total_revenue);
      
-     // Calculate the day's sales total.
-     class_a_total = ( double ) ( class_a_seats * CLASS_A_SEAT_PRICE ); 
-     class_b_total = ( double ) ( class_b_seats * CLASS_B_SEAT_PRICE ); 
-     class_c_total = ( double ) ( class_c_seats * CLASS_C_SEAT_PRICE );
-     sum = ( class_a_total + class_b_total + class_c_total );
-     
-     // Print breakdown to user.      
-     cout << "SALE BREAKDOWN:\n";
-     
-     border.assign( 40, '_' );
-     
-     cout << border << "\n\n";
-     
-     cout << left  << setw ( 20 ) << "Class A seats sold: " 
-          << right << setw ( 6 )  << class_a_seats << setw ( 11 ) << " Total: $" 
-          << setw ( 10 ) << fixed << setprecision ( 2 ) << class_a_total << "\n";
+    std::cout << "SALE BREAKDOWN:\n";
+    dotted_border_for_decoration.assign( 40, '_' );
+    std::cout << dotted_border_for_decoration << "\n\n";
+    
+    std::cout << std::left << std::setw(20) << "Class A seats sold: " << std::right
+    << std::setw(6) << number_of_class_a_seats_sold << std::setw (11) << " Total: $"
+    << std::setw (10) << std::fixed << std::setprecision(2) << class_a_total_revenue << "\n";
           
-     cout << left  << setw ( 20 ) << "Class B seats sold: " 
-          << right << setw ( 6 )  << class_b_seats << setw ( 11 ) << " Total: $" 
-          << setw ( 10 ) << fixed << setprecision(2) << class_b_total << "\n";
+    std::cout << std::left << std::setw(20) << "Class B seats sold: " << std::right
+    << std::setw(6) << number_of_class_b_seats_sold << std::setw (11) << " Total: $"
+    << std::setw (10) << std::fixed << std::setprecision(2) << class_b_total_revenue << "\n";
           
-     cout << left  << setw ( 20 ) << "Class C seats sold: " 
-          << right << setw ( 6 )  << class_c_seats << setw ( 11 ) << " Total: $" 
-          << setw ( 10 ) << fixed << setprecision ( 2 ) << class_c_total << "\n";
+    std::cout << std::left << std::setw(20) << "Class C seats sold: " << std::right
+    << std::setw(6) << number_of_class_c_seats_sold << std::setw (11) << " Total: $"
+    << std::setw (10) << std::fixed << std::setprecision(2) << class_c_total_revenue << "\n";
           
-     cout << endl << "Total sales: $" << sum << "\n\n";
+    std::cout << "\nTotal sales: $" << total_revenue << "\n\n";
           
-     system ( "pause" );
-     return 0;
-} // End main.
-     
- 
+    system ( "pause" );
+    return 0;
+}

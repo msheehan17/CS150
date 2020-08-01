@@ -25,12 +25,12 @@ int main () {
     
     if (feet_in_dads_height < 0) {
        std::cout << "Feet cannot be negative.\n";
-       system ("pause");
-       exit (0);
+       system("pause");
+       exit(0);
     } else if (inches_in_dads_height > 12) {
        std::cout << "12 inches is the same as 1 foot, please reduce your inches to feet.\n";
-       system ("pause");
-       exit (0);
+       system("pause");
+       exit(0);
     }
     
     total_dad_height = ((feet_in_dads_height * 12) + inches_in_dads_height);
@@ -42,11 +42,11 @@ int main () {
     if (feet_in_moms_height < 0) {
        std::cout << "Feet cannot be negative.\n";
        system("pause");
-       exit ( 0 );
+       exit(0);
     } else if (inches_in_moms_height > 12) {
        std::cout << "12 inches is the same as 1 foot, please reduce your inches to feet.\n";
-       system ( "pause" );
-       exit ( 0 );
+       system("pause");
+       exit(0);
     }
     
     total_mom_height = ((feet_in_moms_height * 12) + inches_in_moms_height);

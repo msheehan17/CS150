@@ -1,67 +1,48 @@
- #include < iostream >
- #include < iomanip >
- using namespace std;
+ #include <iostream>
+ #include <iomanip>
 
-/* Property_Tax - Calculates the property tax of a home.
+/* Property_Tax - Calculates the property tax of a home in Madison county.
+ *
  * Author: Matthew Sheehan
- * Project: HW5, Part 3
- *
- * Algorithm: 
- * 
- * 1. Prompt the user to enter the enter the value of their home. Since the 
- * county taxes the assesed value of the home, which is 60% of its value, the
- * program will need to determine what 60% is by finding the product of the home
- * value and sixty percent (0.6).
- *
- * 2. Prompt the user to enter the current county tax rate for every $100 of
- * assessed value. 
- * 
- * 3. The property tax is the product of the tax rate, and every increment of 
- * $100 in the assessed property value. So, to find the property tax, we use
- * the formula (property tax = (assessed value / 100) * tax rate)).
- * 
- * 4. Print the information given by the user, as well as the calculated
- * information.
- * 
  */
- int main ( ) {
-     // Constants, assessed value conversion rate.
+ int main () {
      double ASSESSED_VALUE_RATE = 0.6;
      
-     // Instance variables.
-     double home_value, assessed_value, tax_rate, property_tax;
-     double tax_increments; //  The assessed value of the home divided by 100.
+     double home_value;
+     double assessed_value;
+     double tax_rate;
+     double property_tax;
+     double tax_increments;
      
-     // Prompt user for information.
-     cout << "Hello. Please enter the value of your home: ";
-     cin  >> home_value;
-     cout << "\n";
+     std::cout << "Hello. Please enter the value of your home: ";
+     std::cin >> home_value;
+     std::cout << "\n";
      
-     cout << "What is Madison county's current tax rate?: ";
-     cin  >> tax_rate;
-     cout << "\n";
+     std::cout << "What is Madison county's current tax rate?: ";
+     std::cin >> tax_rate;
+     std::cout << "\n";
      
-     // Perform calculations.
-     assessed_value = ( home_value * ASSESSED_VALUE_RATE );
-     tax_increments = ( assessed_value / 100.00 );
-     property_tax   = ( tax_increments * tax_rate );
+     assessed_value = (home_value * ASSESSED_VALUE_RATE);
+     tax_increments = (assessed_value / 100.00);
+     property_tax = (tax_increments * tax_rate);
      
-     // Print information to user.
-     cout << left  << setw ( 31 ) << "Actual value of the property: " 
-          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << home_value << "\n";
+     std::cout << std::left << std::setw(31) << "Actual value of the property: "
+     << std::right << std::setw(1) << "$" << std::fixed << std::setprecision(2) << std::setw(10)
+     << home_value << "\n";
           
-     cout << left  << setw ( 31 ) << "Assessed percentage rate: " 
-          << right << setw ( 10 ) << ASSESSED_VALUE_RATE << "%" << "\n";
+     std::cout << std::left << std::setw(31) << "Assessed percentage rate: " << std::right
+     << std::setw(10) << ASSESSED_VALUE_RATE << "%" << "\n";
           
-     cout << left  << setw ( 31 ) << "Assessed value: " 
-          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << assessed_value << "\n";
+     std::cout << std::left << std::setw(31) << "Assessed value: " << std::right << std::setw(1)
+     << "$" << std::fixed << std::setprecision(2) << std::setw(10) << assessed_value << "\n";
           
-     cout << left  << setw ( 31 ) << "Tax rate per $100 of value: " 
-          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << tax_rate << "\n";
+     std::cout << std::left << std::setw (31) << "Tax rate per $100 of value: " << std::right
+     << std::setw(1) << "$" << std::fixed << std::setprecision(2) << std::setw(10) << tax_rate <<
+     "\n";
           
-     cout << left  << setw ( 31 ) << "Property tax: " 
-          << right << setw ( 1 )  << "$" << fixed << setprecision ( 2 ) << setw ( 10 ) << property_tax << "\n\n";
+     std::cout << std::left << std::setw(31) << "Property tax: " << std::right << std::setw(1)
+     << "$" << std::fixed << std::setprecision(2) << std::setw (10) << property_tax << "\n\n";
 
      system ( "pause" );
      return 0;
- } // End main.
+ }

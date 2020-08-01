@@ -17,7 +17,7 @@
      
      ceiling_of_user_number = ceil(user_number);
      floor_of_user_number = floor(user_number);
-     absolute_value_of_user_number = (int) abs(user_number);
+     absolute_value_of_user_number = (int) std::abs(user_number);
      
      std::cout << "You entered " << user_number << ".\n\n";
      

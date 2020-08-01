@@ -6,7 +6,6 @@
  */
  int main () {
      int dollar_bill_in_cents = 100;
-     
      int item_price;
      int total_change_to_break_up;
      int quarters_returned;

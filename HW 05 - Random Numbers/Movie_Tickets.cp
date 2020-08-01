@@ -1,90 +1,62 @@
- #include < iostream >
- #include < iomanip >  // Needed for formatting the price breakdown.
- #include < string >   // For creating an underscore border.
- using namespace std;
+ #include <iostream>
+ #include <iomanip>
+ #include <string>
 
-/* Movie_Tickets.cpp - Calculates the total sale, after distribution pay, of movie tickets sold.
- * Author: Matthew Sheehan
- * Project: HW5, Part 2.
+/* Movie_Tickets.cpp - Determines the total amount for tickets, and the amount
+ * paid to distributors/the theater.
  *
- * Algorithm:
- * 
- * 1. Prompt the user for the number of adult tickets sold, followed by the
- * number of children tickets sold.
- *
- * 2. Calculate the sum by multiplying number of adult tickets sold by their 
- * price, and adding it to the product of number of children tickets sold by
- * their price. 
- *
- * 3. Because the theatre must pay 20% to the distributor, the program will 
- * have a breakdown of the ticket sales, total, and the total after the distribution
- * pay.
- *
+ * Author: Matt Sheehan.
  */
- int main ( ) {
+ int main () {
      // Constants, ticket prices and the rate kept from gross ticket sales.
-     const double ADULT_TICKET_PRICE    = 10.00;
-     const double CHILDREN_TICKET_PRICE =  6.00;
+     const double ADULT_TICKET_PRICE = 10.00;
+     const double CHILDREN_TICKET_PRICE = 6.00;
      const double NET_RATE = 0.80;
      
-     // Instance Variables.
-     int adult_tickets, children_tickets;
-     double sum;             // Sum of ticket sales.
-     double net_pay;         // The percentage the theatre keeps.
-     double distributor_pay; // The percentage paid to the distributor.
-     string border;          // A border for the formatted printout.
+     int number_of_adult_tickets;
+     int number_of_child_tickets;
+     double total_price_of_tickets;
+     double paid_to_the_theater;
+     double paid_to_the_distributor;
+     std::string border;
      
-     // Prompt user for tickets sold.
-     cout << "Hello. Please enter the number of adult tickets sold: ";
-     cin  >> adult_tickets;
-     cout << "\n";
+     std::cout << "Hello. Please enter the number of adult tickets sold: ";
+     std::cin  >> number_of_adult_tickets;
+     std::cout << "\n";
      
-     cout << "Now please enter the number of childrens' tickets sold: ";
-     cin  >> children_tickets >> 
-     cout << "\n";
+     std::cout << "Now please enter the number of childrens' tickets sold: ";
+     std::cin  >> number_of_child_tickets;
+     std::cout << "\n";
      
-     // Total ticket sales.
-     sum = ( ( adult_tickets * ADULT_TICKET_PRICE ) + ( children_tickets + CHILDREN_TICKET_PRICE ) );
+     total_price_of_tickets = (( number_of_adult_tickets * ADULT_TICKET_PRICE) +
+     (number_of_child_tickets + CHILDREN_TICKET_PRICE));
      
-     // Theatre's percentage.
-     net_pay = ( sum * NET_RATE );
+     paid_to_the_theater = (total_price_of_tickets * NET_RATE);
      
-     // Distributor percentage.
-     distributor_pay = ( sum - net_pay );
+     paid_to_the_distributor = (total_price_of_tickets - paid_to_the_theater);
      
-     // Print the sales breakdown to the user.
-     cout << "SALE BREAKDOWN:\n";
+     std::cout << "SALE BREAKDOWN:\n";
+     border.assign(40, '_');
+     std::cout << border << "\n\n";
+     std::cout << "Movie Title: Best of the Olympics.\n\n";
+     std::cout << std::left << std::setw(30) << "Adult Tickets Sold: "
+     << std::right << std::setw(12) << number_of_adult_tickets << "\n";
      
-     border.assign( 40, '_' );
-     
-     cout << border << "\n\n";
-     
-     cout << "Movie Title: Best of the Olympics.\n\n";
-     
-     cout << left  << setw ( 30 ) << "Adult Tickets Sold: " 
-          << right << setw ( 12 ) << adult_tickets << "\n";
-     
-     cout << left  << setw ( 30 ) << "Childrens' Tickets Sold: " 
-          << right << setw ( 12 ) << children_tickets << "\n";
+     std::cout << std::left << std::setw(30) << "Childrens' Tickets Sold: "
+     << std::right << std::setw(12) << number_of_child_tickets << "\n";
           
-     cout << left  << setw ( 30 ) << "Gross Box Office Revenue: " 
-          << right << setw ( 3 )  << "$" << setw ( 9 ) << fixed << setprecision ( 2 ) 
-          << sum   << "\n";
+     std::cout << std::left << std::setw(30) << "Gross Box Office Revenue: "
+     << std::right << std::setw(3) << "$" << std::setw(9) << std::fixed << std::setprecision(2)
+     << total_price_of_tickets << "\n";
           
-     cout << left  << setw ( 30 ) << "Amount Paid to Distributor: " 
-          << right << setw ( 3 )  << "-$" << setw ( 9 ) << fixed << setprecision ( 2 ) 
-          << distributor_pay      << "\n";
+     std::cout << std::left << std::setw(30) << "Amount Paid to Distributor: "
+     << std::right << std::setw(3) << "-$" << std::setw(9) << std::fixed << std::setprecision(2)
+     << paid_to_the_distributor << "\n";
           
-     cout << left  << setw ( 30 ) << "Net Box Office Revenue: " 
-          << right << setw ( 3 )  << "$" << setw ( 9 ) << fixed << setprecision ( 2 ) 
-          << net_pay << "\n\n";
+     std::cout << std::left << std::setw(30) << "Net Box Office Revenue: "
+     << std::right << std::setw(3) << "$" << std::setw(9) << std::fixed << std::setprecision(2)
+     << paid_to_the_theater << "\n\n";
      
      system ( "pause" );
      return 0;
- }// End main.
-     
-     
-     
-     
-     
- 
+ }
