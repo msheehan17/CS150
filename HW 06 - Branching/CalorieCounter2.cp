@@ -103,7 +103,7 @@
            total_calories_burned_running *= 1.5;
            total_calories_burned_basketball *= 1.5;
            total_calories_burned_sleeping *= 1.5;
-       break;
+        break;
      }
         
      total_calories_burned_sum = (total_calories_burned_running + total_calories_burned_basketball + total_calories_burned_sleeping);
